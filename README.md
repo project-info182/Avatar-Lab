@@ -109,7 +109,16 @@ Here’s what’s next for Avatar Lab:
 We’re building something exciting—and you can be part of it.  
 For contributions, feedback, or collaboration, feel free to open issues or pull requests.
 
----
+### 👥 Contributors
+
+- [**Shashank Reddy Y**](https://github.com/Shashank-Reddy-Y)  
+- [**Naveen Chandra Kanth**](https://github.com/NaveenCK-10)  
+- [**Satvik V**](https://github.com/satvik2106)  
+- [**Aditi**](https://github.com/Aditi500-ace)  
+- [**Monisha Sarai**](https://github.com/monishasarai)  
+- [**Spandana**](https://github.com/Span1531)  
+- [**Vajra Chaitanya**](https://github.com/Vajra-Chaitanya)
+
 
 ## 📩 Contact
 
