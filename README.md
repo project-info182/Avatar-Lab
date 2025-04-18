@@ -96,11 +96,11 @@ Avatar Lab is ideal for:
 
 Here’s what’s next for Avatar Lab:
 
-- 🌐 **Multilingual Voice Support** – Expand to global voices and dialects  
-- 😃 **Emotion Control** – Let users select avatar emotions (happy, sad, angry, surprised, etc.)  
-- 🕶 **AR/VR Integration** – Bring avatars into the metaverse  
-- 🗣 **Live Mode** – Real-time audio-to-avatar streaming with WebSocket support  
-- 🧑‍🎨 **Custom Avatars** – Style editor for avatars (face, features, mood presets)
+- 🌐 **Finalize TTS model** – Choose a TTS model which works best for us 
+- 😃 **Create Frontend for the project** – A futuristic frontend is to be designed Using Reactjs and TailWind. 
+- 🕶 **Work on backend** – Make the frontend functional.
+- 🗣 **Integrating the models with Backend** – Integrating Both models in backend to work seamlessly 
+- 🧑‍🎨 **Make a Fully Fucntional Website** – Users can now access and generate outputs interacting with the webiste.
 
 ---
 
