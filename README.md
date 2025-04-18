@@ -82,7 +82,7 @@ These models power expressive facial motion, lip-sync, and emotional realism:
 
 ### AI & Deep Learning
 - 🧠 Zono TTS – Speech synthesis
-- 🧍‍♂️ DiffPoseTalker – Facial motion & lip-sync generation
+- 🧍‍♂️ LatentSync – Facial motion & lip-sync generation
 
 ### Backend
 - 🌐 Node.js + Express.js – REST API for animation pipeline
