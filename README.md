@@ -24,9 +24,14 @@ Avatar Lab delivers avatars with:
 
 ---
 
+## 🛠️ Software Development Life Cycle
+
+![SDLC](https://github.com/user-attachments/assets/a18949f7-c52b-4d87-94ca-fa26906e4f53)
+
+
 ## 🛠️ Workflow: From Text to Expressive Avatar
 
-![Workflow](https://github.com/user-attachments/assets/a18949f7-c52b-4d87-94ca-fa26906e4f53)
+![Workflow](https://github.com/project-info182/Avatar-Lab/blob/88b4fd83e925470251876aa0f5ae600440c55834/WorkFlow.png)
 
 1. Input text or audio
 2. Generate expressive speech via neural TTS
