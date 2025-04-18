@@ -21,12 +21,13 @@ Avatar Lab delivers avatars with:
   Easily integrate Avatar Lab into your apps, games, or tools.
 - 🧑‍💻 **Developer-Friendly Architecture**  
   Built on a scalable MERN stack with seamless deployment.
+  
 
 ---
 
-## 🛠️ Software Development Life Cycle
+## 🧬 System Architecture
 
-![SDLC](https://github.com/user-attachments/assets/a18949f7-c52b-4d87-94ca-fa26906e4f53)
+![Architecture](https://github.com/project-info182/Avatar-Lab/blob/bf2a512babd2bcd62cc5af05b92e07e073ca3750/System%20Architecture.png)
 
 ---
 
@@ -40,6 +41,14 @@ Avatar Lab delivers avatars with:
 4. Output an engaging, emotionally aware talking avatar
 
 ---
+
+## 🛠️ Software Development Life Cycle
+
+![SDLC](https://github.com/user-attachments/assets/a18949f7-c52b-4d87-94ca-fa26906e4f53)
+
+---
+
+
 
 ## 🔬 Models Used in Avatar Lab
 
@@ -81,11 +90,6 @@ These models power expressive facial motion, lip-sync, and emotional realism:
 
 ---
 
-## 🧬 System Architecture
-
-![Architecture](https://github.com/project-info182/Avatar-Lab/blob/bf2a512babd2bcd62cc5af05b92e07e073ca3750/System%20Architecture.png)
-
----
 
 ## 🚀 Use Cases
 
