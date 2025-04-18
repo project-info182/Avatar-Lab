@@ -28,6 +28,7 @@ Avatar Lab delivers avatars with:
 
 ![SDLC](https://github.com/user-attachments/assets/a18949f7-c52b-4d87-94ca-fa26906e4f53)
 
+---
 
 ## 🛠️ Workflow: From Text to Expressive Avatar
 
