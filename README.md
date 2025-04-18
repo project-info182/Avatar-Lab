@@ -27,8 +27,28 @@ Most AI avatar solutions focus on basic lip sync, but real human communication i
 🔹 Redux – Efficient state management<br>
 
 <b> AI & Deep Learning Models:</b><br>
- 🔹Coqui TTS – Neural speech synthesis (converts text into natural speech)<br>
- 🔹DiffPoseTalker – AI-driven facial animation (maps speech to realistic lip and head movements)<br>
+
+**TTS MODELS**
+These are the models we are currenlty working on. We are testing them and checking out which one is the best fit for our project. 
+
+🔹 Coqui TTS – Neural speech synthesis (converts text into natural speech)<br>
+🔹Zonos TTS
+🔹 Spark TTS
+🔹 Suno Bark TTS
+🔹SMALL-E
+
+**DIFFUSION MODELS**
+
+These are the diffusion models we worked on for generating avatars:
+
+🔹DiffPoseTalker
+🔹MEMO
+🔹SadTalker
+🔹LatentSync
+🔹DiffTalk
+
+From these models we have finalized LatentSync as it produces a great output which optimistic use of GPU.
+
 
 <b> Backend:</b><br>
 🔹 Node.js & Express.js – Scalable REST API architecture<br>
