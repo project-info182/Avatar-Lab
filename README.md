@@ -66,7 +66,7 @@ These models power expressive facial motion, lip-sync, and emotional realism:
 - 🔄 Redux – Efficient state management
 
 ### AI & Deep Learning
-- 🧠 Coqui TTS – Speech synthesis
+- 🧠 Zono TTS – Speech synthesis
 - 🧍‍♂️ DiffPoseTalker – Facial motion & lip-sync generation
 
 ### Backend
@@ -77,7 +77,7 @@ These models power expressive facial motion, lip-sync, and emotional realism:
 
 ## 🧬 System Architecture
 
-![Architecture](https://github.com/user-attachments/assets/ad5ddbc7-bb95-4289-b3e7-5c3aeddf0367)
+![Architecture](https://github.com/project-info182/Avatar-Lab/blob/bf2a512babd2bcd62cc5af05b92e07e073ca3750/System%20Architecture.png)
 
 ---
 
