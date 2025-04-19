@@ -137,6 +137,5 @@ For contributions, feedback, or collaboration, feel free to open issues or pull 
 - [**Monisha Sarai**](https://github.com/monishasarai)  
 - [**Spandana**](https://github.com/Span1531)  
 - [**Vajra Chaitanya**](https://github.com/Vajra-Chaitanya)
-- 
 **Let’s make avatars *feel* human.**  
 Welcome to the future of expressive AI.
