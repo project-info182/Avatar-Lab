@@ -76,11 +76,11 @@ These models power expressive facial motion, lip-sync, and emotional realism:
 
 So after trying out multiple TTS and Diffusion-based Facial animation models, we finally decided upon 2 models.
 
-   🗣️ **Speech Synthesis Model**
-      [**Zonos TTS**](https://github.com/Zyphra/Zonos) –  We have choosed Zonos TTS as it is a lightweight TTS engine and produces a highly realistic audio output.
+   🗣️ **Speech Synthesis Model**<br>
+      [**Zonos TTS**](https://github.com/Zyphra/Zonos) –  We have choosed Zonos TTS as it is a lightweight TTS engine and produces a highly realistic audio output.<br>
 
-   🎥 **Diffusion-Based Facial Animation**
-      - [**LatentSync**](https://github.com/bytedance/LatentSync) – Produces highly realistic avatars with precise lip-syncing.    
+   🎥 **Diffusion-Based Facial Animation**<br>
+      - [**LatentSync**](https://github.com/bytedance/LatentSync) – Produces highly realistic avatars with precise lip-syncing. <br>   
 
 ## 🧱 Technology Stack
 
