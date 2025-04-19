@@ -77,10 +77,10 @@ These models power expressive facial motion, lip-sync, and emotional realism:
 So after trying out multiple TTS and Diffusion-based Facial animation models, we finally decided upon 2 models.
 
    🗣️ **Speech Synthesis Model**<br>
-        -[**Zonos TTS**](https://github.com/Zyphra/Zonos) –  We have choosed Zonos TTS as it is a lightweight TTS engine and produces a highly realistic audio output.<br>
+        &nbsp;-[**Zonos TTS**](https://github.com/Zyphra/Zonos) –  We have choosed Zonos TTS as it is a lightweight TTS engine and produces a highly realistic audio output.<br>
 
    🎥 **Diffusion-Based Facial Animation**<br>
-        -[**LatentSync**](https://github.com/bytedance/LatentSync) – Produces highly realistic avatars with precise lip-syncing. <br>   
+        &nbsp;-[**LatentSync**](https://github.com/bytedance/LatentSync) – Produces highly realistic avatars with precise lip-syncing. <br>   
 
 ## 🧱 Technology Stack
 
@@ -115,7 +115,7 @@ Avatar Lab is ideal for:
 
 Here’s what’s next for Avatar Lab:
 
-- 🌐 **Finalize TTS model** – Choose a TTS model which works best for us ✅ 
+✅ - 🌐 **Finalize TTS model** – Choose a TTS model which works best for us 
 - 😃 **Create Frontend for the project** – A futuristic frontend is to be designed Using Reactjs and TailWind. 
 - 🕶 **Work on backend** – Make the frontend functional.
 - 🗣 **Integrating the models with Backend** – Integrating Both models in backend to work seamlessly 
