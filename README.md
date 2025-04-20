@@ -80,7 +80,11 @@ After evaluating several TTS and diffusion-based facial animation models, we fin
 We chose **Zonos TTS** for its lightweight architecture and natural, expressive voice synthesis.
 
 🎧 **Sample Audio Output:**  
-[🔊 Listen to Zonos_output.wav](./Zonos_output.wav)
+<audio controls>
+  <source src="https://github.com/project-info182/Avatar-Lab/blob/main/Zonos_output.wav" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
 
 ---
 
@@ -88,10 +92,20 @@ We chose **Zonos TTS** for its lightweight architecture and natural, expressive 
 We selected **LatentSync** for its highly realistic avatar generation and superior lip-sync accuracy.
 
 📹 **Sample Video Outputs:**  
-- [Watch Output 1](./demo3_video_20250408_153800.mp4)  
-- [Watch Output 2](./out_e51cb55d-3afe-4f42-b4a5-f87848919740_demo1_video.mp4)
- 
+- [Watch Output 1]
+<video width="320" height="240" controls>
+  <source src="https://github.com/project-info182/Avatar-Lab/blob/main/demo3_video_20250408_153800.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
+
+- [Watch Output 2]
+  <video width="320" height="240" controls>
+  <source src="https://github.com/project-info182/Avatar-Lab/blob/main/out_e51cb55d-3afe-4f42-b4a5-f87848919740_demo1_video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+  
 ## 🧱 Technology Stack
 
 ### Frontend
