@@ -91,9 +91,19 @@ We chose **Zonos TTS** for its lightweight architecture and natural, expressive 
 We selected **LatentSync** for its highly realistic avatar generation and superior lip-sync accuracy.
 
 📹 **Sample Video Outputs:**  
-[![Watch the demo 1](https://raw.githubusercontent.com/project-info182/Avatar-Lab/main/thumbnail.png)](https://project-info182.github.io/Avatar-Lab/video.html)
 
-[![Watch the demo 2](https://raw.githubusercontent.com/project-info182/Avatar-Lab/main/thumbnail2.png)](https://project-info182.github.io/Avatar-Lab/video1.html)
+📹 **Sample Video Outputs:**
+
+<p align="center">
+  <a href="https://project-info182.github.io/Avatar-Lab/video.html">
+    <img src="https://raw.githubusercontent.com/project-info182/Avatar-Lab/main/thumbnail.png" alt="Watch the demo 1" width="300"/>
+  </a>
+  &nbsp;
+  <a href="https://project-info182.github.io/Avatar-Lab/video1.html">
+    <img src="https://raw.githubusercontent.com/project-info182/Avatar-Lab/main/thumbnail1.png" alt="Watch the demo 2" width="300"/>
+  </a>
+</p>
+
 ## 🧱 Technology Stack
 
 ### Frontend
