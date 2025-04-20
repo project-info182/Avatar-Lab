@@ -82,10 +82,8 @@ We chose **Zonos TTS** for its lightweight architecture and natural, expressive 
 🎧 **Sample Audio Output:**  
 
 <p><b>🎧 Audio Preview:</b></p>
-<audio controls>
-  <source src="https://raw.githubusercontent.com/project-info182/Avatar-Lab/main/sample1.wav" type="audio/wav">
-  Your browser does not support the audio element.
-</audio>
+🎧 [Click here to listen to the sample audio](https://project-info182.github.io/Avatar-Lab/)
+
 
 ---
 
