@@ -92,15 +92,16 @@ We selected **LatentSync** for its highly realistic avatar generation and superi
 
 📹 **Sample Video Outputs:**  
 
-📹 **Sample Video Outputs:**
-
 <p align="center">
+  Output demo 1
   <a href="https://project-info182.github.io/Avatar-Lab/video.html">
-    <img src="https://raw.githubusercontent.com/project-info182/Avatar-Lab/main/thumbnail.png" alt="Watch the demo 1" width="300"/>
+    <img src="https://raw.githubusercontent.com/project-info182/Avatar-Lab/main/thumbnail.png" alt="Watch the demo 1" width="300" height="300"/>
   </a>
-  &nbsp;
+  <br>
+  <br>
+  Output demo 2
   <a href="https://project-info182.github.io/Avatar-Lab/video1.html">
-    <img src="https://raw.githubusercontent.com/project-info182/Avatar-Lab/main/thumbnail1.png" alt="Watch the demo 2" width="300"/>
+    <img src="https://raw.githubusercontent.com/project-info182/Avatar-Lab/main/thumbnail1.png" alt="Watch the demo 2" width="300" height="300"/>
   </a>
 </p>
 
