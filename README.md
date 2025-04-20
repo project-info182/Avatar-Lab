@@ -82,7 +82,7 @@ We chose **Zonos TTS** for its lightweight architecture and natural, expressive 
 🎧 **Sample Audio Output:**  
 
 <p><b>🎧 Audio Preview:</b></p>
-🎧 [![Audio Preview](https://img.shields.io/badge/Play-Audio-blue?style=for-the-badge&logo=soundcloud)](https://project-info182.github.io/Avatar-Lab/)
+🎧 click for output: (https://project-info182.github.io/Avatar-Lab/)
 
 
 ---
