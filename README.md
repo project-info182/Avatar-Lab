@@ -140,6 +140,7 @@ Avatar Lab is ideal for:
 Here’s what’s next for Avatar Lab:
 
 ✅ - 🌐 **Finalize TTS model** – Choose a TTS model which works best for us <br>
+✅ - 🎥**Finalize Facial Animation model** – Choose a Facial Animation model which works best for us <br>
 ✅- 😃 **Create Frontend for the project** – A futuristic frontend is to be designed Using Reactjs and TailWind. 
 - 🕶 **Work on backend** – Make the frontend functional.
 - 🗣 **Integrating the models with Backend** – Integrating Both models in backend to work seamlessly 
