@@ -46,7 +46,7 @@ Avatar Lab delivers avatars with:
 - 🌐 Node.js + Express.js – REST API for animation pipeline
 - 🗂 MongoDB – Database for user data and animation metadata
 
-  ---
+---
 
 ## 🛠️ Workflow: From Text to Expressive Avatar
 
