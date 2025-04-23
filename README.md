@@ -94,7 +94,7 @@ We selected **LatentSync** for its highly realistic avatar generation and superi
   <br>
   **Output demo 1**
   <br>
-  <a href="https://github.com/project-info182/Avatar-Lab/video.html">
+  <a href="https://github.com/project-info182/Avatar-Lab/blob/gh-pages/video.html">
     <img src="https://raw.githubusercontent.com/project-info182/Avatar-Lab/main/thumbnail.png" alt="Watch the demo 1" width="300" />
   </a>
   <br>
