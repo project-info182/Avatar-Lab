@@ -67,7 +67,7 @@ Avatar Lab delivers avatars with:
 
 
 
-## 🔬 Models we tried 
+## 🔬 Models We Explored
 
 ### 🗣️ Speech Synthesis Models
 
