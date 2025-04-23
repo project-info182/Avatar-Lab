@@ -31,6 +31,23 @@ Avatar Lab delivers avatars with:
 
 ---
 
+## 🧱 Technology Stack
+
+### Frontend
+- ⚛️ React.js – Component-based UI
+- 🎨 Tailwind CSS – Responsive modern styling
+- 🔄 Redux – Efficient state management
+
+### AI & Deep Learning
+- 🧠 Zono TTS – Speech synthesis
+- 🧍‍♂️ LatentSync – Facial motion & lip-sync generation
+
+### Backend
+- 🌐 Node.js + Express.js – REST API for animation pipeline
+- 🗂 MongoDB – Database for user data and animation metadata
+
+  ---
+
 ## 🛠️ Workflow: From Text to Expressive Avatar
 
 ![Workflow](https://github.com/project-info182/Avatar-Lab/blob/88b4fd83e925470251876aa0f5ae600440c55834/WorkFlow.png)
@@ -105,21 +122,6 @@ We selected **LatentSync** for its highly realistic avatar generation and superi
     <img src="https://raw.githubusercontent.com/project-info182/Avatar-Lab/main/thumbnail1.png" alt="Watch the demo 2" width="300" height="300"/>
   </a>
 </p>
-
-## 🧱 Technology Stack
-
-### Frontend
-- ⚛️ React.js – Component-based UI
-- 🎨 Tailwind CSS – Responsive modern styling
-- 🔄 Redux – Efficient state management
-
-### AI & Deep Learning
-- 🧠 Zono TTS – Speech synthesis
-- 🧍‍♂️ LatentSync – Facial motion & lip-sync generation
-
-### Backend
-- 🌐 Node.js + Express.js – REST API for animation pipeline
-- 🗂 MongoDB – Database for user data and animation metadata
 
 ---
 
