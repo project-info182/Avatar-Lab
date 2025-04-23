@@ -27,7 +27,7 @@ Avatar Lab delivers avatars with:
 
 ## 🧬 System Architecture
 
-![Architecture](https://github.com/project-info182/Avatar-Lab/blob/fd10e54fc111c07aed8cb996bfef18a976590026/System%20Architecture.png)
+![Architecture](https://github.com/project-info182/Avatar-Lab/blob/7df4445a74c9edae386dcd826128b442f6f97b93/System%20Architecture%20Final.png)
 
 ---
 
