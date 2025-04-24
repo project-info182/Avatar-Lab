@@ -50,7 +50,7 @@ Avatar Lab delivers avatars with:
 
 ## 🛠️ Workflow: From Text to Expressive Avatar
 
-![Workflow](https://github.com/project-info182/Avatar-Lab/blob/88b4fd83e925470251876aa0f5ae600440c55834/WorkFlow.png)
+![Workflow](https://github.com/project-info182/Avatar-Lab/blob/94b4663f4856a9e8b0cbef705152684d41c7a8ff/WorkFlow%20Final.png)
 
 1. Input text or audio
 2. Generate expressive speech via neural TTS
