@@ -61,6 +61,8 @@ Avatar Lab delivers avatars with:
 
 ## 🛠️ Software Development Life Cycle
 
+📊 Custom SDLC: Modified Waterfall with Parallel Model Integration for AI Pipelines 🤖⚙️
+
 ![SDLC](https://github.com/project-info182/Avatar-Lab/blob/main/SDLC.jpg)
 
 ---
