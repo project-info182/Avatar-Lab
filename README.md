@@ -91,7 +91,7 @@ These models power expressive facial motion, lip-sync, and emotional realism:
 - [**LatentSync**](https://github.com/bytedance/LatentSync) – Audio-latent space sync for expressive talking heads  
 
 ---
-## 🆕 UPDATES
+## 🆕 Models we have choosed for our project 
 
 After evaluating several TTS and diffusion-based facial animation models, we finalized on the following two for **Avatar Lab**:
 
