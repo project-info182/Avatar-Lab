@@ -40,7 +40,7 @@ def generate_speech():
 
     try:
         # Load speaker audio to create speaker embedding
-        wav, sampling_rate = torchaudio.load(speaker_audio_path)
+        wav, sampling_rate = torchaudio.load(speaker_audio_path)#Having a problem in loading the wav file . Will soon resolve this.
         speaker = model.make_speaker_embedding(wav, sampling_rate)
 
         # Prepare the conditioning dictionary
