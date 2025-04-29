@@ -152,6 +152,10 @@ Here’s what’s next for Avatar Lab:
 
 ---
 
+##UPDATES
+-**Working on tts integration with the frontend.
+    Currently getting an internal server error when we pass the audio template to the TTS Model.
+
 ## 🧠 Contribute or Collaborate
 
 We’re building something exciting—and you can be part of it.  
