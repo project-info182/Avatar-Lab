@@ -146,15 +146,19 @@ Here’s what’s next for Avatar Lab:
 ✅ - 🌐 **Finalize TTS model** – Choose a TTS model which works best for us <br>
 ✅ - 🎥**Finalize Facial Animation model** – Choose a Facial Animation model which works best for us <br>
 ✅- 😃 **Create Frontend for the project** – A futuristic frontend is to be designed Using Reactjs and TailWind. 
-- 🕶 **Work on backend** – Make the frontend functional.
-- 🗣 **Integrating the models with Backend** – Integrating Both models in backend to work seamlessly 
+✅ - 🕶 **Work on backend** – Make the frontend functional.
+✅ - 🗣 **Integrating the models with Backend** – Integrating Both models in backend to work seamlessly 
 - 🧑‍🎨 **Make a Fully Fucntional Website** – Users can now access and generate outputs interacting with the webiste.
 
 ---
 
 ##UPDATES
--**Working on tts integration with the frontend.
-    Currently getting an internal server error when we pass the audio template to the TTS Model.
+-✅ **Working on tts integration with the frontend.
+    Currently getting an internal server error when we pass the audio template to the TTS Model.(**resolved**)
+  Solution: we have removed the use of local paths to access audio templates in the TTS.py and instead made use of URL to access local file path and download them. 
+
+-The prototype of the project is all done now, we are polishing and renovating the frontend.
+- We also tried to run both the models on the same port( currently the tts api is  running on port 8000 and The latentsync api is running on 6900) but we failed to do so because of conflicting model dependencies.
 
 ## 🧠 Contribute or Collaborate
 
