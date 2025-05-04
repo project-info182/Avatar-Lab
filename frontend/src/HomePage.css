@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #0f0f1a, #1a1a2e);
+  color: #f0f0f0;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* === Theme Base Styles === */
+.homepage {
+    font-family: 'Poppins', sans-serif;
+    padding: 1rem;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  
+  /* DARK THEME (default) */
+  .homepage.dark {
+    background: linear-gradient(to bottom, #0f0f1a, #1a1a2e);
+    color: #f0f0f0;
+  }
+  
+  /* LIGHT THEME */
+  .homepage.light {
+    background: #f8f9fb;
+    color: #1a1a1a;
+  }
+  
+  /* Toggle Button */
+  .theme-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    color: inherit;
+    border: 2px solid currentColor;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    z-index: 100;
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+  }
+  
+  .theme-toggle:hover {
+    transform: scale(1.05);
+  }
+  
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 4rem 1rem;
+  background: url('../muskbro.webp') center/cover no-repeat;
+  color: white;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 0;
+  border-radius: 16px;
+}
+
+.hero h1,
+.hero p,
+.cta-button {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+.cta-button {
+  background: linear-gradient(to right, #007bff, #00d4ff);
+  color: white;
+  padding: 0.9rem 1.8rem;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+}
+
+/* How it Works Section */
+.how-it-works {
+  margin: 4rem 0;
+}
+
+.how-it-works h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.steps {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.step {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 16px;
+  max-width: 300px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.step:hover {
+  transform: translateY(-5px);
+}
+
+/* Template Previews */
+.templates-preview {
+  margin: 4rem 0;
+  text-align: center;
+}
+
+.template-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .template {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    width: 180px;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease;
+  }
+  
+  .template:hover {
+    transform: translateY(-5px);
+  }
+  
+  .template img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .template audio {
+    width: 100%;
+    height: 40px;
+    border-radius: 0;
+  }
+  
+  .template p {
+    text-align: center;
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+  }
+  
+
+.footer {
+  text-align: center;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-top: 4rem;
+}
