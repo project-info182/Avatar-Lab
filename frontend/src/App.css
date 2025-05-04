@@ -1,0 +1,28 @@
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  font-family: sans-serif;
+  padding: 1rem;
+}
+
+.section {
+  margin-bottom: 2rem;
+}
+
+.options {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.selected {
+  border: 3px solid #007bff;
+  border-radius: 4px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 0.5rem;
+  font-size: 1rem;
+}

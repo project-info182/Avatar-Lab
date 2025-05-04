@@ -1,0 +1,77 @@
+.video-output-page {
+    padding: 3rem 2rem;
+    background-color: #fdfdfd;
+    min-height: 100vh;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 2rem;
+  }
+  
+  .output-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+  
+  .template-preview img {
+    width: 220px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .template-preview audio {
+    margin-bottom: 1rem;
+  }
+  
+  .transcript-block,
+  .video-block {
+    background: #f5f7fa;
+    padding: 1.5rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+  }
+  
+  .transcript-block h3,
+  .video-block h3 {
+    color: #007bff;
+    margin-bottom: 0.75rem;
+  }
+  
+  .transcript-block p {
+    color: #222;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  video {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+  
+  .restart-btn {
+    margin-top: 2rem;
+    padding: 0.8rem 2rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .restart-btn:hover {
+    background-color: #0056b3;
+  }
+  
