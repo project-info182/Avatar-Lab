@@ -1,28 +1,38 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import './TemplateSelect.css';
+import './TemplateSelect.css'; // Ensure this file contains the CSS below
 
 const templates = [
   {
     id: 'template1',
     name: 'Person A',
-    imageUrl: '/assets/demo1_video.mp4',
-    audioUrl: '/assets/demo1.wav',
+    imageUrl: '/assets/demo1_video.mp4', // UPDATE PATH
+    audioUrl: '/assets/demo1.wav',       // UPDATE PATH
+    posterUrl: '/assets/poster1.jpg'     // Optional Poster: UPDATE PATH
   },
   {
     id: 'template2',
     name: 'Person B',
-    imageUrl: '/assets/demo2_video.mp4',
-    audioUrl: '/assets/demo2.wav',
+    imageUrl: '/assets/demo2_video.mp4', // UPDATE PATH
+    audioUrl: '/assets/demo2.wav',       // UPDATE PATH
+    posterUrl: '/assets/poster2.jpg'     // Optional Poster: UPDATE PATH
   },
   {
     id: 'template3',
     name: 'Person C',
-    imageUrl: '/assets/demo3.mp4',
-    audioUrl: '/assets/demo3.wav',
+    imageUrl: '/assets/demo3.mp4',       // UPDATE PATH
+    audioUrl: '/assets/demo3.wav',       // UPDATE PATH
+    posterUrl: '/assets/poster3.jpg'     // Optional Poster: UPDATE PATH
   },
+  {
+    id: 'template4',
+    name: 'Person D',
+    imageUrl: '/assets/spokesman.mp4',       // UPDATE PATH
+    audioUrl: '/assets/bark_output_2.wav',       // UPDATE PATH
+    posterUrl: '/assets/poster4.jpg'     // Optional Poster: UPDATE PATH
+  },
+  // Add more templates as needed
 ];
-
 
 const TemplateSelect = () => {
   const [selectedTemplateId, setSelectedTemplateId] = useState(null);
@@ -43,31 +53,44 @@ const TemplateSelect = () => {
   };
 
   return (
-    <div className="template-select-page">
-      <h2>Select a Talking Head Template</h2>
+    // Added class for potential future theme toggling alignment
+    <div className="template-select-page dark">
+      {/* Animated gradient background applied via CSS */}
+      <div className="background-overlay"></div> {/* Optional overlay div */}
+
+      {/* Updated Title */}
+      <h2 className="page-title">Select Avatar Template</h2>
+
       <div className="template-grid">
         {templates.map((template) => (
           <div
             key={template.id}
-            className={`template-card ${selectedTemplateId === template.id ? 'selected' : ''}`}
+            // Added glassmorphism class
+            className={`template-card glassmorphism ${selectedTemplateId === template.id ? 'selected' : ''}`}
             onClick={() => setSelectedTemplateId(template.id)}
             role="button"
             tabIndex={0}
             aria-pressed={selectedTemplateId === template.id}
+            onKeyPress={(e) => { if (e.key === 'Enter' || e.key === ' ') setSelectedTemplateId(template.id); }} // Basic keyboard accessibility
           >
-            <video
-              src={template.imageUrl}
-              width="200"
-              height="auto"
-              muted
-              loop
-              playsInline
-              autoPlay // Optional: remove if you don't want autoplay
-              poster="/assets/placeholder.jpg" // Optional: fallback image
-            />
+            <div className="card-media-wrapper">
+              <video
+                src={template.imageUrl}
+                width="100%"
+                height="100%" // Fill wrapper
+                muted
+                loop
+                playsInline
+                autoPlay
+                poster={template.posterUrl || "/assets/placeholder_video.jpg"} // UPDATE PATH
+                preload="metadata"
+                className="template-video-preview"
+              />
+              <div className="media-overlay"></div>
+            </div>
             <div className="template-info">
               <p>{template.name}</p>
-              <audio controls>
+              <audio controls key={template.audioUrl}>
                 <source
                   src={template.audioUrl}
                   type={`audio/${template.audioUrl.split('.').pop()}`}
@@ -84,7 +107,7 @@ const TemplateSelect = () => {
         onClick={handleConfirm}
         disabled={!selectedTemplateId}
       >
-        Confirm Selection
+        <span>Confirm Selection & Proceed</span>
       </button>
     </div>
   );

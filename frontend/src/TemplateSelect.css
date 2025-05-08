@@ -1,83 +1,252 @@
+/* Ensure :root variables from enhanced HomePage.css or a global file are available */
+/* If not, copy the :root block defining colors, transitions etc. here */
+/* @import url('...'); needed if fonts not global */
+
+/* Base Page Style */
 .template-select-page {
-    padding: 3rem 2rem;
-    text-align: center;
-    background: rgba(5, 4, 4, 0.05);
-    min-height: 100vh;
+  padding: clamp(3rem, 8vh, 5rem) clamp(1rem, 5vw, 2rem);
+  text-align: center;
+  background-color: var(--dark-bg); /* Base dark background */
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  color: var(--dark-text);
+  font-family: var(--font-primary);
+}
+/* Animated gradient background */
+.template-select-page::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  background: var(--dark-bg-gradient); /* Use the gradient variable */
+  background-size: 300% 300%;
+  animation: gradient-pan 30s ease infinite alternate;
+  transition: background var(--transition-speed-slow) ease;
+}
+/* Keyframes for gradient background */
+@keyframes gradient-pan {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+/* Optional overlay */
+.background-overlay {
+    position: fixed; inset: 0; z-index: -1;
+    /* background: radial-gradient(ellipse at bottom, rgba(var(--dark-glow-color-2-rgb), 0.1), transparent 60%); */
+    pointer-events: none;
+}
+
+
+/* Title Styling with Hover Effect */
+.template-select-page .page-title { /* Using a more specific class */
+  font-family: var(--font-sci-fi); /* Optional: Use sci-fi font */
+  font-size: clamp(2.2rem, 6vw, 3rem);
+  margin-bottom: clamp(3rem, 7vh, 4rem);
+  color: var(--dark-text);
+  font-weight: 700;
+  position: relative;
+  text-shadow:
+    0 0 7px rgba(var(--dark-glow-color-1-rgb), 0.9),
+    0 0 15px rgba(var(--dark-glow-color-1-rgb), 0.6),
+    0 0 25px rgba(var(--dark-glow-color-2-rgb), 0.4);
+  transition: text-shadow var(--transition-speed-medium) ease, color var(--transition-speed-fast) ease;
+  cursor: default;
+}
+.template-select-page .page-title:hover {
+  color: #fff;
+  text-shadow:
+    0 0 8px rgba(var(--dark-glow-color-1-rgb), 1),
+    0 0 18px rgba(var(--dark-glow-color-1-rgb), 0.7),
+    0 0 35px rgba(var(--dark-glow-color-2-rgb), 0.6),
+    0 0 60px rgba(var(--dark-glow-color-2-rgb), 0.3);
+}
+/* Title Underline */
+.template-select-page .page-title::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px; height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--dark-accent1), var(--dark-accent2));
+}
+
+/* Template Grid Layout */
+.template-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(clamp(240px, 28vw, 300px), 1fr));
+  gap: clamp(1.8rem, 4vw, 3rem);
+  max-width: 1400px;
+  margin: 0 auto;
+  justify-content: center; /* Center items in the grid container */
+}
+
+/* Glassmorphism Base for Cards */
+.glassmorphism {
+  background: rgba(var(--dark-card-bg), 0.45); /* Adjusted transparency */
+  backdrop-filter: blur(15px) saturate(160%);
+  -webkit-backdrop-filter: blur(15px) saturate(160%);
+  border: 1px solid rgba(var(--dark-glow-color-1-rgb), 0.2); /* Slightly more visible border */
+  box-shadow: 0 8px 32px rgba(var(--dark-shadow-color), 0.35);
+}
+/* Template Card Styling */
+.template-card {
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.35s var(--easing-curve-bounce),
+              border-color 0.3s ease,
+              box-shadow 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Card Media Section */
+.card-media-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 75%; /* 4:3 Aspect ratio - adjust if videos are different */
+  overflow: hidden;
+  background-color: #181828; /* Darker fallback */
+}
+.template-video-preview {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.media-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(0deg, rgba(var(--dark-glow-color-1-rgb),0.4) 0%, transparent 60%);
+  opacity: 0; transition: opacity 0.3s ease; z-index: 1; pointer-events: none;
+}
+.template-card:hover .media-overlay { opacity: 1; }
+.template-card:hover .template-video-preview { transform: scale(1.1); }
+
+/* Template Info Section */
+.template-info {
+  padding: 1.2rem; width: 100%; text-align: center;
+  display: flex; flex-direction: column; gap: 1rem;
+  flex-grow: 1;
+  background: rgba(var(--dark-card-bg), 0.3);
+  border-top: 1px solid rgba(var(--dark-glow-color-1-rgb), 0.15);
+}
+.template-info p {
+  font-weight: 600; font-size: 1.05rem; color: var(--dark-text); margin: 0;
+}
+.template-info audio {
+  width: 90%; max-width: 220px; height: 38px; outline: none; margin: 0 auto;
+  filter: invert(0.9) hue-rotate(180deg) brightness(0.9) contrast(1.1);
+}
+
+/* Enhanced Hover Effect for Template Card */
+.template-card:hover {
+  transform: translateY(-10px) scale(1.04);
+  border-color: rgba(var(--dark-glow-color-1-rgb), 0.7); /* Brighter Cyan border */
+  box-shadow: 0 12px 40px rgba(var(--dark-shadow-color), 0.5),
+              0 0 20px 5px rgba(var(--dark-glow-color-1-rgb), 0.7), /* Cyan */
+              0 0 40px 10px rgba(var(--dark-glow-color-2-rgb), 0.35); /* Purple */
+}
+
+/* Enhanced Selected State for Template Card */
+.template-card.selected {
+  border-color: var(--dark-accent2); /* Strong Purple border */
+  transform: translateY(-5px) scale(1.02); /* Keep slight lift */
+  box-shadow: 0 10px 35px rgba(var(--dark-shadow-color), 0.6),
+              0 0 25px 6px rgba(var(--dark-glow-color-2-rgb), 0.8), /* Stronger Purple glow */
+              0 0 45px 12px rgba(var(--dark-glow-color-1-rgb), 0.4); /* Cyan subtle glow */
+}
+/* Selected checkmark indicator */
+.template-card.selected::after {
+    content: '✓'; position: absolute; top: 12px; right: 12px;
+    background-color: var(--dark-accent2); color: var(--dark-bg);
+    border-radius: 50%; width: 26px; height: 26px;
+    display: flex; justify-content: center; align-items: center;
+    font-size: 15px; font-weight: bold;
+    box-shadow: 0 0 12px rgba(var(--dark-glow-color-2-rgb), 0.9);
+    z-index: 2;
+    border: 1px solid rgba(255,255,255,0.5); /* Add slight edge */
+}
+
+/* Enhanced Confirm Button */
+.confirm-btn {
+  margin-top: 3.5rem;
+  padding: 1rem 3rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #EAE6F8;
+  background-image: linear-gradient(100deg, var(--dark-accent1), var(--dark-accent2), var(--dark-accent3), var(--dark-accent1));
+  background-size: 250% auto;
+  background-position: left center;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all var(--transition-speed-medium) ease;
+  box-shadow: 0 5px 20px -5px rgba(var(--dark-glow-color-1-rgb),0.6),
+              0 4px 15px -3px rgba(var(--dark-glow-color-2-rgb),0.4);
+  position: relative; z-index: 1; overflow: hidden;
+}
+.confirm-btn span { position: relative; z-index: 2; }
+
+.confirm-btn:hover:not(:disabled) {
+  background-position: right center;
+  box-shadow: 0 8px 30px -8px rgba(var(--dark-glow-color-1-rgb),0.8),
+              0 6px 25px -5px rgba(var(--dark-glow-color-2-rgb),0.6),
+              0 0 15px rgba(var(--dark-glow-color-3-rgb),0.4);
+  transform: scale(1.05) translateY(-3px);
+}
+.confirm-btn:active:not(:disabled) {
+  transform: scale(1.02) translateY(-1px);
+}
+.confirm-btn:disabled {
+  background-image: none;
+  background-color: #444;
+  color: #888;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    .template-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1.5rem;
+    }
+    .template-select-page .page-title { /* Ensure specificity */
+        font-size: clamp(1.8rem, 5vw, 2.2rem);
+        margin-bottom: 2.5rem;
+    }
+    .confirm-btn {
+        padding: 0.9rem 2.2rem;
+        font-size: 1rem;
+    }
+    .template-info { padding: 1rem; }
+    .template-info p { font-size: 0.95rem; }
+    .template-info audio { height: 35px; }
+}
+
+/* --- Accessibility: Reduce Motion --- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    animation-play-state: paused !important;
   }
-  
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: #fff;
+  .template-card, .confirm-btn /* Add others if entry animations were added */ {
+    opacity: 1 !important; transform: none !important;
   }
-  
-  .template-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+   .template-select-page::before /* Stop background animation */ {
+    animation: none !important;
   }
-  
-  .template-card {
-    background: rgba(53, 52, 52, 0.6);
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    color: #d9e2ed;
-    overflow: hidden;
-    cursor: pointer;
-    border: 3px solid transparent;
-    transition: transform 0.2s ease, border-color 0.2s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .template-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .template-card.selected {
-    border-color: #007bff;
-  }
-  
-  .template-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-  }
-  
-  .template-info {
-    padding: 1rem;
-    width: 100%;
-    text-align: center;
-  }
-  
-  .template-info p {
-    font-weight: 600;
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-    color: #eae3e3;
-  }
-  
-  .template-info audio {
-    width: 100%;
-    outline: none;
-  }
-  
-  .confirm-btn {
-    margin-top: 2.5rem;
-    padding: 0.9rem 2rem;
-    font-size: 1rem;
-    background-color: #007bff;
-    border: none;
-    border-radius: 8px;
-    color: #fff;
-    cursor: pointer;
-    transition: background 0.2s ease;
-  }
-  
-  .confirm-btn:hover {
-    background-color: #0056b3;
-  }
-  
+  .template-card:hover, .confirm-btn:hover, .template-card.selected {
+       transform: none !important; /* Disable hover/select transforms */
+   }
+   .template-card:hover .template-video-preview { transform: none !important; }
+}
