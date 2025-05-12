@@ -231,9 +231,9 @@ Avatar Lab is ideal for enhancing applications in:
 
 ## 📈 Project Updates
 
--   **[Date - e.g., 2024-05-10]:** Resolved TTS integration issue (internal server error) by switching to URL-based access for audio templates, improving reliability.
--   **[Date - e.g., 2024-04-25]:** Core prototype functionality (text-to-speech-to-video pipeline) is complete. Shifting focus to frontend refinement, UX improvements, and comprehensive testing.
--   **[Date - e.g., 2024-04-10]:** Investigated running TTS and LatentSync models on a unified port. Encountered dependency conflicts; exploring solutions like containerization or API gateway patterns for model serving.
+-   **[Date -  2024-04-28]:** Resolved TTS integration issue (internal server error) by switching to URL-based access for audio templates, improving reliability.
+-   **[Date -  2024-04-30]:** Core prototype functionality (text-to-speech-to-video pipeline) is complete. Shifting focus to frontend refinement, UX improvements, and comprehensive testing.
+-   **[Date -  2024-04-10]:** Investigated running TTS and LatentSync models on a unified port. Encountered dependency conflicts; exploring solutions like containerization or API gateway patterns for model serving.
 
 ---
 
