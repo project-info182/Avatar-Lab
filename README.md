@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Contributors](https://img.shields.io/github/contributors/project-info182/Avatar-Lab.svg)](https://github.com/project-info182/Avatar-Lab/graphs/contributors)
-Welcome to **Avatar Lab** – the next generation of intelligent, emotionally expressive avatar animation. More than just lip-syncing, Avatar Lab combines powerful neural speech synthesis and state-of-the-art diffusion models to generate **realistic**, **emotion-aware avatars** that move, speak, and feel like real humans.
+Welcome to **Avatar Lab** – the next generation of intelligent, emotionally expressive avatar animation. More than just lip-syncing, Avatar Lab combines powerful neural speech synthesis and state-of-the-art animation model to generate **realistic**, **emotion-aware avatars** that move, speak, and feel like real humans.
 
 Whether you're building virtual assistants, game characters, or AI-driven content creators, Avatar Lab brings your digital personas to life.
 
@@ -33,14 +33,10 @@ Avatar Lab delivers avatars with:
 - 🎙 **Neural Speech Synthesis:** Realistic, expressive speech via cutting-edge TTS models.
 - 🗣 **True-to-Life Lip Sync:** Facial animations that match audio at a near-human level.
 - 👀 **Emotional Facial Motion:** Micro-expressions, eye blinks, and head tilts for authentic avatars.
-- 🔌 **REST API:** Easily integrate Avatar Lab into your apps, games, or tools.
-- 🧑‍💻 **Developer-Friendly Architecture:** Built on a scalable MERN stack with seamless deployment.
 
 ---
 
 ## 🚀 Getting Started
-
-*(This section is a placeholder. Please fill in with actual setup and usage instructions.)*
 
 This project contains a frontend, backend, and AI model components.
 
@@ -63,8 +59,10 @@ This project contains a frontend, backend, and AI model components.
     ```bash
     cd backend # Or your backend folder name
     npm install
-    # Create a .env file based on .env.example and configure variables (DB_URI, ports, API keys etc.)
-    npm start
+    # Create a .env file based on .env.example and configure variables (DB_URI, ports etc.)
+    python tts.py ( starting zonos api)
+
+    python animation.py (starting LatentSync api)
     ```
 
 3.  **Frontend Setup:**
