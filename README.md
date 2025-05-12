@@ -41,6 +41,7 @@ Avatar Lab delivers avatars with:
 This project contains a frontend, backend, and AI model components.
 
 ### Prerequisites
+- React router v5
 - Node.js (e.g., v18.x or later)
 - npm / yarn
 - Python (e.g., v3.9+) & pip
@@ -75,18 +76,17 @@ This project contains a frontend, backend, and AI model components.
 
 4.  **AI Model Setup (Zonos TTS & LatentSync):**
     *(Detailed instructions needed here)*
-    - Python environment setup (e.g., `python -m venv .venv && source .venv/bin/activate`)
-    - `pip install -r requirements.txt` (for each model if they have separate requirements)
+    - Create 2 virtual environment setup for 2 models (e.g., `python -m venv .venv && source .venv/bin/activate`)
+    - `pip install -r requirements.txt` (different requirements for each model)
     - Downloading pre-trained model weights.
-    - Configuration for model API endpoints if they run as separate services.
+    - Configuration for model API endpoints as they run as separate services.
 
 ### Basic Usage / API Interaction
 - Access the web interface at `http://localhost:3000` (or your frontend port).
 - API endpoints (example):
     - `POST /api/generate-speech` (Input: text, voice_id; Output: audio_file_url)
-    - `POST /api/animate-avatar` (Input: image_url, audio_file_url, emotion_prompt; Output: video_file_url)
+    - `POST /api/lipsync` (Input: video_url, audio_file_url; Output: video_file_url)
 
-*(Provide more specific commands and expected outcomes)*
 
 ---
 
@@ -101,15 +101,14 @@ This project contains a frontend, backend, and AI model components.
 
 ### Frontend
 - ⚛️ **React.js (Next.js):** Component-based UI, SSR, and routing.
-- 🎨 **Tailwind CSS:** Utility-first CSS framework for rapid, responsive styling.
-- 🔄 **Redux (or Zustand/Context API):** State management for complex application states.
+- 🎨 **CSS:** Utility-CSS  for rapid  styling.
 
 ### AI & Deep Learning
 - 🧠 **Zonos TTS:** Chosen for its lightweight architecture and natural speech synthesis.
 - 🧍‍♂️ **LatentSync:** Selected for superior lip-sync accuracy and realistic avatar animation.
 
 ### Backend
-- 🌐 **Node.js + Express.js:** Powers the REST API and orchestrates the animation pipeline.
+- 🌐 **FLASK:** Powers the REST API and orchestrates the animation pipeline.
 - 🗂 **MongoDB:** NoSQL database for user data, animation metadata, and project configurations.
 
 ### Deployment & Infrastructure (Example)
@@ -124,9 +123,9 @@ This project contains a frontend, backend, and AI model components.
 ![Avatar Generation Workflow](https://github.com/project-info182/Avatar-Lab/blob/94b4663f4856a9e8b0cbef705152684d41c7a8ff/WorkFlow%20Final.png)
 *Caption: Step-by-step process from user input to final animated avatar.*
 
-1.  User inputs text/script and selects avatar/voice preferences.
+1.  selects avatar/voice preferences and User inputs text/script.
 2.  Backend sends text to **Zonos TTS** to generate expressive speech audio.
-3.  The generated audio and chosen avatar image (or 3D model reference) are passed to **LatentSync**.
+3.  The generated audio and chosen avatar template (or 3D model reference) are passed to **LatentSync**.
 4.  LatentSync generates facial landmarks and renders the animated video.
 5.  The final video is delivered to the user.
 
@@ -208,7 +207,7 @@ Avatar Lab is ideal for enhancing applications in:
 
 ### 🚀 Current Focus & Next Steps
 - [ ] **Full-Fledged Web Application:**
-    - [ ] Develop a user-friendly interface for avatar generation (text input, audio upload, avatar selection).
+    - [ ✅ ] Develop a user-friendly interface for avatar generation (text input, audio upload, avatar selection).
     - [ ] Implement user accounts for saving projects and preferences.
 - [ ] **API Enhancement & Documentation:**
     - [ ] Refine and document the REST API for third-party developer integration.
@@ -231,7 +230,7 @@ Avatar Lab is ideal for enhancing applications in:
 
 -   **[Date -  2024-04-28]:** Resolved TTS integration issue (internal server error) by switching to URL-based access for audio templates, improving reliability.
 -   **[Date -  2024-04-30]:** Core prototype functionality (text-to-speech-to-video pipeline) is complete. Shifting focus to frontend refinement, UX improvements, and comprehensive testing.
--   **[Date -  2024-04-10]:** Investigated running TTS and LatentSync models on a unified port. Encountered dependency conflicts; exploring solutions like containerization or API gateway patterns for model serving.
+-   **[Date -  2024-04-10]:** Investigated running TTS and LatentSync models on a unified port. Encountered dependency conflicts; currently sticking to running models on different ports
 
 ---
 
@@ -263,8 +262,6 @@ A big thank you to all our contributors:
 - [**Monisha Sarai**](https://github.com/monishasarai)
 - [**Spandana**](https://github.com/Span1531)
 - [**Vajra Chaitanya**](https://github.com/Vajra-Chaitanya)
-
-*(This list can also be auto-generated using tools like All Contributors Bot)*
 
 ---
 
