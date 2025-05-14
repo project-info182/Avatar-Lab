@@ -1,0 +1,565 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font-primary: 'Inter', sans-serif;
+  --transition-speed-fast: 0.25s;
+  --transition-speed-medium: 0.45s;
+  --transition-speed-slow: 0.65s;
+  --easing-curve: cubic-bezier(0.25, 0.8, 0.25, 1);
+  --easing-curve-bounce: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+  /* Original Dark Theme Variables (used by other sections) */
+  --dark-bg: #080710; /* Overall page background */
+  --dark-bg-gradient: linear-gradient(160deg, #1A1A2E 0%, #0F0F1B 70%, #080710 100%);
+  --dark-text: #EAE6F8;
+  --dark-text-secondary: #A09CB8;
+  --dark-accent1: #00CFE8;       /* Cyan - will be reused */
+  --dark-accent2: #C039F4;       /* Purple - will be reused for magenta-like */
+  --dark-accent3: #F83D7A;       /* Pink/Magenta */
+  --dark-card-bg: rgba(26, 26, 46, 0.6); /* General card background */
+  --dark-card-border: rgba(192, 57, 244, 0.45); /* General card border */
+  --dark-shadow-color: rgba(0,0,0, 0.6);
+  --dark-glow-color-1-rgb: 0, 207, 232;
+  --dark-glow-color-2-rgb: 192, 57, 244;
+  --dark-glow-color-3-rgb: 248, 61, 122;
+
+  /* Specific Accents for "How It Works" from screenshot */
+  --hiw-accent-cyan: var(--dark-accent1); /* #00FFFF or #00CFE8 */
+  --hiw-accent-magenta: var(--dark-accent2); /* #FF00FF or #C039F4 */
+  --hiw-card-bg: rgba(20, 20, 40, 0.45); /* Slightly different dark card for HIW */
+  --hiw-card-border: rgba(var(--dark-glow-color-1-rgb), 0.4); /* Cyanish border */
+  --hiw-card-border-hover: rgba(var(--dark-glow-color-2-rgb), 0.6); /* Purplish border on hover */
+
+
+  /* Light Theme Variables (remain for theme toggle) */
+  --light-bg: #F4F8FF;
+  --light-bg-gradient: linear-gradient(145deg, #E6F0FF 0%, #FFFFFF 80%);
+  --light-text: #2C3A4A;
+  --light-text-secondary: #5F738B;
+  --light-accent1: #3498DB;
+  --light-accent2: #E74C3C;
+  --light-accent3: #85C1E9;
+  --light-card-bg: rgba(255, 255, 255, 0.9);
+  --light-card-border: rgba(52, 152, 219, 0.35);
+  --light-shadow-color: rgba(44, 62, 80, 0.12);
+  --light-glow-color-1-rgb: 52, 152, 219;
+  --light-glow-color-2-rgb: 231, 76, 60;
+
+  --animation-delay: 0.06s;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-primary);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  background-color: var(--dark-bg);
+}
+
+.homepage {
+  width: 100%; min-height: 100vh; overflow-x: hidden;
+  position: relative; padding: 0 clamp(1rem, 5vw, 4rem);
+  background-color: var(--dark-bg); /* This ensures the overall page background is dark */
+  color: var(--dark-text);
+  transition: background-color var(--transition-speed-medium) ease, color var(--transition-speed-medium) ease;
+}
+.homepage.light {
+  background-color: var(--light-bg);
+  color: var(--light-text);
+}
+/* For .background-animation-container, .theme-toggle, .hero, .templates-preview, .footer - they will use the general dark theme variables */
+/* We are now focusing on overriding styles for "How It Works" section specifically */
+
+.background-animation-container {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  z-index: -2;
+  overflow: hidden; pointer-events: none;
+  background: var(--dark-bg-gradient);
+  background-size: 300% 300%;
+  animation: gradient-pan 25s ease infinite alternate;
+  transition: background var(--transition-speed-slow) ease;
+}
+.homepage.light .background-animation-container {
+  background: var(--light-bg-gradient);
+  animation-duration: 35s;
+}
+@keyframes gradient-pan {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.theme-toggle {
+  position: fixed; top: clamp(1.5rem, 3vh, 2.5rem); right: clamp(1.5rem, 3vw, 2.5rem);
+  width: 50px; height: 50px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 1.6rem;
+  z-index: 1000;
+  backdrop-filter: blur(10px) saturate(150%); -webkit-backdrop-filter: blur(10px) saturate(150%);
+  border: 1px solid;
+  transition: all var(--transition-speed-medium) var(--easing-curve);
+  background: rgba(var(--dark-card-bg), 0.7);
+  border-color: rgba(var(--dark-glow-color-2-rgb), 0.5);
+  color: var(--dark-accent1);
+  box-shadow: 0 0 12px rgba(var(--dark-glow-color-2-rgb), 0.3), 0 0 6px rgba(var(--dark-glow-color-1-rgb), 0.2);
+}
+.homepage.light .theme-toggle {
+  background: rgba(255,255,255, 0.7);
+  border-color: rgba(var(--light-glow-color-1-rgb), 0.4);
+  color: var(--light-accent1);
+  box-shadow: 0 3px 10px rgba(var(--light-shadow-color), 0.7), 0 0 8px rgba(var(--light-glow-color-1-rgb), 0.3);
+}
+.theme-toggle:hover {
+  transform: scale(1.12) rotate(25deg);
+  color: var(--dark-accent3);
+  box-shadow: 0 0 20px rgba(var(--dark-glow-color-2-rgb), 0.5), 0 0 10px rgba(var(--dark-glow-color-1-rgb), 0.4);
+}
+.homepage.light .theme-toggle:hover {
+  color: var(--light-accent2);
+  box-shadow: 0 5px 15px rgba(var(--light-shadow-color), 0.9), 0 0 12px rgba(var(--light-glow-color-1-rgb), 0.5);
+}
+.theme-toggle:active {
+  transform: scale(1.05) rotate(10deg);
+}
+
+section, header.hero, footer.footer {
+  position: relative; z-index: 1;
+  max-width: 1200px;
+  margin-left: auto; margin-right: auto;
+}
+section { padding: clamp(3rem, 10vh, 6rem) 0; }
+
+/* General Section Title - will be used by Hero, Templates, etc. */
+.section-title {
+  font-size: clamp(2.2rem, 6vw, 3.5rem); font-weight: 700;
+  text-align: center; margin-bottom: clamp(3rem, 8vh, 5rem);
+  opacity: 0; transform: translateY(30px) scale(0.95);
+  transition: opacity var(--transition-speed-medium) var(--easing-curve),
+              transform var(--transition-speed-medium) var(--easing-curve),
+              color var(--transition-speed-medium) ease,
+              filter var(--transition-speed-medium) ease;
+  color: var(--dark-text);
+  filter: drop-shadow(0 0 10px rgba(var(--dark-glow-color-1-rgb), 0.5)) drop-shadow(0 0 5px rgba(var(--dark-glow-color-2-rgb), 0.3));
+}
+.homepage.light .section-title {
+  color: var(--light-text);
+  filter: drop-shadow(0 2px 4px rgba(var(--light-shadow-color), 0.5));
+}
+section.in-view .section-title { opacity: 1; transform: translateY(0) scale(1); }
+
+.section-title::after {
+  content: ''; position: absolute; bottom: -15px; left: 50%;
+  transform: translateX(-50%) scaleX(0); transform-origin: center;
+  width: clamp(80px, 15vw, 130px); height: 5px;
+  border-radius: 3px;
+  transition: transform var(--transition-speed-medium) var(--easing-curve) 0.3s, background var(--transition-speed-medium) ease;
+  background: linear-gradient(90deg, var(--dark-accent1), var(--dark-accent2), var(--dark-accent3));
+}
+.homepage.light .section-title::after {
+  background: linear-gradient(90deg, var(--light-accent1), var(--light-accent2));
+}
+section.in-view .section-title::after { transform: translateX(-50%) scaleX(1); }
+
+
+/* === Styles for "How It Works" Section to Match Screenshot === */
+
+/* Override for the "How It Works" section title specifically */
+.how-it-works .section-title {
+  font-size: clamp(2rem, 5vw, 2.8rem); /* From screenshot analysis */
+  font-weight: 700;
+  color: var(--dark-text); /* White/light text from screenshot */
+  filter: none; /* Screenshot title text doesn't have a strong drop shadow, more flat */
+  margin-bottom: 5rem; /* More space before timeline starts */
+}
+.how-it-works .section-title::after { /* Underline for "How It Works" title */
+  width: 80px; /* Width from screenshot analysis */
+  height: 4px; /* Thickness from screenshot analysis */
+  background: linear-gradient(90deg, var(--hiw-accent-cyan), var(--hiw-accent-magenta)); /* Gradient from screenshot */
+  bottom: -12px; /* Position from screenshot analysis */
+}
+/* Light theme for How It Works title if needed - for now, focusing on dark based on screenshot */
+.homepage.light .how-it-works .section-title {
+    color: var(--light-text);
+}
+.homepage.light .how-it-works .section-title::after {
+    background: linear-gradient(90deg, var(--light-accent1), var(--light-accent2));
+}
+
+
+.how-it-works .steps-timeline {
+  position: relative;
+  max-width: 600px; /* Adjust to control width of content boxes */
+  margin: 0 auto; /* Centered */
+  padding-left: 60px; /* Increased space for numbers and line */
+}
+
+.how-it-works .steps-timeline::before { /* The main vertical timeline bar */
+  content: '';
+  position: absolute;
+  top: 20px; /* Start a bit down to align with first number center */
+  bottom: 20px; /* End a bit up */
+  left: 20px; /* Position of the line relative to .steps-timeline padding */
+  width: 3px;
+  background: linear-gradient(to top, var(--hiw-accent-magenta) 0%, var(--hiw-accent-cyan) 100%);
+  border-radius: 1.5px;
+  z-index: 0; /* Behind step numbers but above section background */
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: opacity var(--transition-speed-slow) ease 0.4s, transform var(--transition-speed-slow) ease 0.4s;
+}
+.how-it-works .steps-timeline.is-visible::before {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.how-it-works .step-item {
+  position: relative;
+  margin-bottom: 2rem; /* Space between step items */
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity var(--transition-speed-medium) var(--easing-curve),
+              transform var(--transition-speed-medium) var(--easing-curve);
+}
+/* Staggered animation - delays from your original applied in JSX or here */
+.how-it-works.in-view .step-item:nth-child(1) { transition-delay: 0.6s; } /* Adjusted delays */
+.how-it-works.in-view .step-item:nth-child(2) { transition-delay: 0.8s; }
+.how-it-works.in-view .step-item:nth-child(3) { transition-delay: 1.0s; }
+
+.how-it-works.in-view .step-item {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.how-it-works .step-number {
+  position: absolute;
+  left: 0px; /* Aligns the center of the number with the start of .steps-timeline padding */
+  top: 0px; /* Align to the top of the step-content or adjust for vertical center */
+  transform: translateX(-50%); /* Centers the number on the line if left was related to line's center */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--dark-bg); /* To create the "cut-out" effect on the timeline line */
+  border: 2px solid var(--hiw-accent-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--hiw-accent-cyan);
+  box-shadow: 0 0 12px rgba(var(--dark-glow-color-1-rgb), 0.6), 0 0 18px rgba(var(--dark-glow-color-1-rgb), 0.4);
+  z-index: 1; /* Above timeline bar */
+  transition: border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.how-it-works .step-content {
+  background: var(--hiw-card-bg);
+  border: 1px solid var(--hiw-card-border);
+  border-radius: 10px; /* Screenshot has slightly less rounded corners */
+  padding: 1.25rem 1.75rem; /* Adjust padding */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: border-color var(--transition-speed-fast) ease, transform var(--transition-speed-fast) ease, box-shadow var(--transition-speed-fast) ease;
+}
+.how-it-works .step-content:hover {
+  border-color: var(--hiw-card-border-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35), 0 0 10px var(--hiw-card-border-hover);
+}
+.how-it-works .step-content h3 {
+  font-size: 1.15rem; /* From screenshot */
+  font-weight: 500;
+  color: var(--dark-text);
+  margin-bottom: 0.4rem;
+}
+.how-it-works .step-content p {
+  font-size: 0.85rem; /* From screenshot */
+  color: var(--dark-text-secondary);
+  line-height: 1.5;
+}
+
+/* Light theme adaptations for "How It Works" if you toggle */
+.homepage.light .how-it-works .steps-timeline::before {
+  background: linear-gradient(to top, var(--light-accent2), var(--light-accent1));
+}
+.homepage.light .how-it-works .step-number {
+  background: var(--light-bg);
+  border-color: var(--light-accent1);
+  color: var(--light-accent1);
+  box-shadow: 0 0 10px rgba(var(--light-glow-color-1-rgb), 0.4);
+}
+.homepage.light .how-it-works .step-content {
+  background: rgba(var(--light-card-bg),0.8); /* Make it slightly more opaque than general light cards */
+  border-color: rgba(var(--light-card-border),0.7);
+  box-shadow: 0 4px 12px var(--light-shadow-color);
+}
+.homepage.light .how-it-works .step-content:hover {
+    border-color: var(--light-accent2);
+    box-shadow: 0 6px 20px var(--light-shadow-color), 0 0 10px rgba(var(--light-glow-color-2-rgb), 0.4);
+}
+.homepage.light .how-it-works .step-content h3 { color: var(--light-text); }
+.homepage.light .how-it-works .step-content p { color: var(--light-text-secondary); }
+
+
+/* === Styles for Hero, Templates Preview, Footer (from your pasted CSS) === */
+/* These sections will use the general dark/light theme variables */
+.hero {
+  min-height: 90vh; display: flex; align-items: center;
+  justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+  padding-top: clamp(4rem, 15vh, 8rem); padding-bottom: clamp(3rem, 10vh, 5rem);
+}
+.hero-content {
+  flex: 1 1 50%; max-width: 680px; text-align: left;
+  opacity: 0; transform: translateX(-40px);
+  transition: opacity var(--transition-speed-slow) var(--easing-curve) 0.2s, transform var(--transition-speed-slow) var(--easing-curve) 0.2s;
+}
+.hero.in-view .hero-content { opacity: 1; transform: translateX(0); }
+
+.hero-title {
+  font-size: clamp(2.8rem, 8vw, 5rem); font-weight: 700;
+  line-height: 1.1; margin-bottom: 1.8rem;
+  color: var(--dark-text);
+  filter: drop-shadow(0 0 18px rgba(var(--dark-glow-color-1-rgb), 0.6)) drop-shadow(0 0 8px rgba(var(--dark-glow-color-2-rgb), 0.4));
+  transition: color var(--transition-speed-medium) ease, filter var(--transition-speed-medium) ease;
+}
+.homepage.light .hero-title {
+  color: var(--light-text);
+  filter: drop-shadow(0 4px 8px rgba(var(--light-shadow-color),0.6));
+}
+.hero-title span {
+  display: inline-block; opacity: 0;
+  transform: translateY(40px) rotateX(-90deg) scale(0.7);
+  transform-origin: bottom center;
+  transition: opacity var(--transition-speed-medium) var(--easing-curve-bounce), transform var(--transition-speed-medium) var(--easing-curve-bounce);
+}
+.hero.in-view .hero-title span { opacity: 1; transform: translateY(0) rotateX(0deg) scale(1); }
+
+.hero-subtitle {
+  font-size: clamp(1.1rem, 3vw, 1.35rem); font-weight: 300;
+  margin-bottom: 3rem; max-width: 550px;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity var(--transition-speed-medium) var(--easing-curve) 0.6s, transform var(--transition-speed-medium) var(--easing-curve) 0.6s, color var(--transition-speed-medium) ease;
+  color: var(--dark-text-secondary);
+}
+.homepage.light .hero-subtitle { color: var(--light-text-secondary); }
+.hero.in-view .hero-subtitle { opacity: 1; transform: translateY(0); }
+
+.cta-button {
+  display: inline-block;
+  padding: clamp(0.9rem, 2.2vh, 1.2rem) clamp(1.8rem, 4vw, 2.8rem);
+  font-size: clamp(1rem, 2vh, 1.15rem); font-weight: 600;
+  color: #FFFFFF; text-decoration: none; border-radius: 50px;
+  position: relative; overflow: hidden; z-index: 1;
+  background-image: linear-gradient(100deg, var(--dark-accent1), var(--dark-accent2), var(--dark-accent3), var(--dark-accent1));
+  background-size: 300% auto;
+  box-shadow: 0 6px 20px -8px rgba(var(--dark-glow-color-1-rgb),0.7), 0 4px 15px -5px rgba(var(--dark-glow-color-2-rgb),0.5);
+  transition: all var(--transition-speed-medium) ease;
+  opacity: 0; transform: translateY(20px) scale(0.9);
+  animation: cta-pulse 2.5s infinite ease-in-out 1.5s;
+}
+.homepage.light .cta-button {
+  background-image: linear-gradient(100deg, var(--light-accent1), var(--light-accent2), var(--light-accent3), var(--light-accent1));
+  box-shadow: 0 6px 20px -8px rgba(var(--light-glow-color-1-rgb),0.5), 0 4px 15px -5px rgba(var(--light-shadow-color),0.7);
+}
+.hero.in-view .cta-button { opacity: 1; transform: translateY(0) scale(1); transition-delay: 0.8s; }
+
+.cta-button:hover {
+  transform: scale(1.07) translateY(-5px);
+  background-position: right center;
+  box-shadow: 0 10px 30px -10px rgba(var(--dark-glow-color-1-rgb),0.8), 0 6px 20px -6px rgba(var(--dark-glow-color-2-rgb),0.6), 0 0 15px rgba(var(--dark-glow-color-3-rgb),0.4);
+}
+.homepage.light .cta-button:hover {
+  box-shadow: 0 10px 30px -10px rgba(var(--light-glow-color-1-rgb),0.6), 0 6px 20px -6px rgba(var(--light-shadow-color),0.8);
+}
+.cta-button:active { transform: scale(1.02) translateY(-2px); }
+.cta-button span { position: relative; z-index: 2; }
+@keyframes cta-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+.hero.in-view .cta-button { animation-play-state: running; }
+
+
+.hero-visual {
+  flex: 0 1 45%; max-width: 450px; height: 450px;
+  border-radius: 30px; overflow: hidden;
+  opacity: 0; transform: perspective(1200px) translateX(50px) rotateY(-8deg) scale(0.9);
+  transition: opacity var(--transition-speed-slow) var(--easing-curve-bounce) 0.4s, transform var(--transition-speed-slow) var(--easing-curve-bounce) 0.4s, box-shadow var(--transition-speed-medium) ease, filter var(--transition-speed-medium) ease;
+  box-shadow: 0 20px 50px -10px rgba(var(--dark-shadow-color),0.7);
+  filter: drop-shadow(0px 15px 35px rgba(var(--dark-glow-color-2-rgb), 0.4));
+}
+.homepage.light .hero-visual {
+  box-shadow: 0 20px 50px -10px rgba(var(--light-shadow-color),0.8);
+  filter: none;
+}
+.hero.in-view .hero-visual { opacity: 1; transform: perspective(1200px) translateX(0) rotateY(0deg) scale(1); }
+
+.hero-visual-gif { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
+
+
+.template-gallery {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(clamp(180px, 25vw, 240px), 1fr));
+  gap: clamp(1.5rem, 3vw, 2.8rem);
+}
+.template {
+  border-radius: 20px; overflow: hidden;
+  backdrop-filter: blur(12px) saturate(150%); -webkit-backdrop-filter: blur(12px) saturate(150%);
+  position: relative;
+  transition: all var(--transition-speed-medium) var(--easing-curve-bounce);
+  opacity: 0; transform: translateY(40px) scale(0.9);
+  background: rgba(var(--dark-card-bg),0.65); border: 1px solid rgba(var(--dark-card-border),0.5);
+  box-shadow: 0 10px 30px -7px rgba(var(--dark-shadow-color),0.6);
+}
+.homepage.light .template {
+  background: rgba(var(--light-card-bg),0.65); border: 1px solid rgba(var(--light-card-border),0.5);
+  box-shadow: 0 10px 30px -7px rgba(var(--light-shadow-color),0.7);
+}
+.template.animated-item { opacity: 1; transform: translateY(0) scale(1); }
+
+
+.template-media { height: clamp(180px, 30vh, 220px); overflow: hidden; position: relative; }
+.template-media img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform var(--transition-speed-slow) var(--easing-curve) 0.1s;
+}
+.template-media.audio-template {
+  display: flex; align-items: center; justify-content: center; padding: 1rem;
+  transition: background var(--transition-speed-medium) ease;
+  background: rgba(0,0,0,0.2);
+}
+.homepage.light .template-media.audio-template {
+  background: rgba(var(--light-glow-color-1-rgb), 0.08);
+}
+.template-media audio {
+  width: 100%; max-width: 180px; height: 45px; border-radius: 8px;
+  transition: filter var(--transition-speed-medium) ease, box-shadow var(--transition-speed-medium) ease;
+}
+.homepage:not(.light) .template-media audio {
+  filter: invert(1) hue-rotate(180deg) brightness(0.75) contrast(1.2) saturate(0.4);
+  box-shadow: 0 0 8px rgba(var(--dark-glow-color-1-rgb), 0.2);
+}
+.homepage.light .template-media audio {
+  filter: none;
+  box-shadow: 0 2px 5px rgba(var(--light-shadow-color),0.5);
+}
+.template-info { padding: 1.2rem; text-align: center; }
+.template-info p {
+  font-size: clamp(0.9rem, 2.2vw, 1.05rem); font-weight: 500; margin: 0;
+  transition: color var(--transition-speed-medium) ease; color: var(--dark-text);
+}
+.homepage.light .template-info p { color: var(--light-text); }
+
+.template::after {
+  content: ''; position: absolute; inset: -1px;
+  border-radius: inherit; opacity: 0;
+  transition: opacity var(--transition-speed-medium) var(--easing-curve), background var(--transition-speed-medium) ease;
+  z-index: 1; pointer-events: none;
+  background: linear-gradient(0deg, rgba(var(--dark-glow-color-1-rgb), 0.7) 0%, rgba(var(--dark-glow-color-2-rgb), 0.3) 60%, transparent 100%);
+}
+.homepage.light .template::after {
+  background: linear-gradient(0deg, rgba(var(--light-glow-color-1-rgb), 0.5) 0%, rgba(var(--light-glow-color-2-rgb), 0.2) 60%, transparent 100%);
+}
+.template:hover {
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 0 18px 50px -12px rgba(var(--dark-shadow-color),0.8),
+              0 0 25px rgba(var(--dark-glow-color-1-rgb),0.6),
+              0 0 12px rgba(var(--dark-glow-color-3-rgb),0.4);
+}
+.homepage.light .template:hover {
+  box-shadow: 0 18px 50px -12px rgba(var(--light-shadow-color),0.9),
+              0 0 20px rgba(var(--light-glow-color-1-rgb),0.7);
+}
+.template:hover::after { opacity: 1; }
+.template:hover .template-media img { transform: scale(1.15) rotate(2deg); }
+.template .template-info { position: relative; z-index: 2; }
+
+.footer {
+  text-align: center; padding: 4rem 0 2.5rem 0; margin-top: clamp(4rem, 10vh, 6rem);
+  font-size: clamp(0.85rem, 1.8vw, 0.95rem); font-weight: 300;
+  opacity: 0; transform: translateY(30px);
+  transition: all var(--transition-speed-medium) var(--easing-curve) 0.3s;
+  border-top: 1px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to right, transparent, var(--dark-card-border), transparent);
+  color: var(--dark-text-secondary);
+}
+.homepage.light .footer {
+  border-image-source: linear-gradient(to right, transparent, var(--light-card-border), transparent);
+  color: var(--light-text-secondary);
+}
+.footer.in-view { opacity: 1; transform: translateY(0); }
+.footer p { margin-bottom: 0.8rem; }
+.footer a {
+  text-decoration: none; position: relative;
+  transition: color var(--transition-speed-fast) ease, text-shadow var(--transition-speed-fast) ease;
+  padding: 2px 4px; margin: 0 0.5rem;
+  color: var(--dark-accent1);
+}
+.homepage.light .footer a { color: var(--light-accent1); }
+.footer a::after {
+  content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 2px;
+  transform: scaleX(0); transform-origin: center;
+  transition: transform var(--transition-speed-medium) var(--easing-curve), background-color var(--transition-speed-medium) ease;
+  background-color: var(--dark-accent1);
+}
+.homepage.light .footer a::after { background-color: var(--light-accent1); }
+.footer a:hover {
+  color: var(--dark-accent3);
+  text-shadow: 0 0 10px rgba(var(--dark-accent3-rgb),0.7);
+}
+.homepage.light .footer a:hover {
+  color: var(--light-accent2);
+  text-shadow: 0 0 10px rgba(var(--light-glow-color-2-rgb),0.7);
+}
+.footer a:hover::after { transform: scaleX(1); }
+
+@media (max-width: 992px) {
+  .hero { justify-content: center; text-align: center; }
+  .hero-content { order: 2; text-align: center; max-width: 100%; }
+  .hero .hero-subtitle { margin-left: auto; margin-right: auto; }
+  .hero-visual { order: 1; margin-bottom: 3rem; max-width: 400px; height: 400px; }
+}
+@media (max-width: 768px) {
+  section { padding: clamp(2.5rem, 8vh, 4rem) 0; }
+  .section-title { margin-bottom: clamp(2.5rem, 6vh, 4rem); }
+  .hero-visual { max-width: 320px; height: 320px; }
+  .how-it-works .steps-timeline::before { left: clamp(20px, 4.5vw, 30px); } /* Ensure specificity if needed */
+  .how-it-works .step-item { padding-left: clamp(60px, 11vw, 80px); }
+  .how-it-works .step-number { width: clamp(45px, 8vw, 55px); height: clamp(45px, 8vw, 55px); }
+}
+@media (max-width: 480px) {
+  .homepage { padding: 0 clamp(0.8rem, 4vw, 1.5rem); }
+  .theme-toggle { width: 45px; height: 45px; font-size: 1.4rem; }
+  .hero-title { font-size: clamp(2.2rem, 7vw, 3rem); }
+  .hero-subtitle { font-size: clamp(1rem, 2.8vw, 1.1rem); }
+  .hero-visual { max-width: 280px; height: 280px; }
+  .cta-button { width: 100%; text-align: center; }
+  .template-gallery { grid-template-columns: repeat(auto-fill, minmax(clamp(150px, 40vw, 200px), 1fr)); }
+  .how-it-works .step-content h3 { font-size: clamp(1.1rem, 2.8vw, 1.3rem); } /* Ensure specificity */
+  .how-it-works .step-content p { font-size: clamp(0.85rem, 1.9vw, 0.95rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    animation-play-state: paused !important;
+  }
+  .hero-content, .hero-visual, .hero-title span, .hero-subtitle, .cta-button,
+  .step-item, .template.animated-item, .footer, .section-title,
+  .section-title::after, .steps-timeline::before {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .background-animation-container, .step-number, .steps-timeline::before, .cta-button {
+    animation: none !important;
+  }
+  .theme-toggle:hover, .cta-button:hover, .step-content:hover, .template:hover,
+  .template:hover .template-media img {
+    transform: none !important;
+  }
+}

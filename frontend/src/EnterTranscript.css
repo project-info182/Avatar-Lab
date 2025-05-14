@@ -1,0 +1,192 @@
+.transcript-page {
+    position: relative;
+    padding: 4rem 2rem;
+    min-height: 100vh;
+    background: linear-gradient(160deg, #0d1117, #1f2937);
+    color: #f0f0f0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .transcript-page::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: full;
+    height: full;
+    background: url('../muskbro.webp') no-repeat center center;
+    background-size: contain;
+    transform: translate(-50%, -50%);
+    opacity: 0.04;
+    z-index: 0;
+    pointer-events: none;
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0% { transform: translate(-50%, -50%) translateY(0); }
+    50% { transform: translate(-50%, -50%) translateY(15px); }
+    100% { transform: translate(-50%, -50%) translateY(0); }
+  }
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    z-index: 2;
+    color: #00d4ff;
+  }
+  
+  .waveform-wrapper {
+    width: 100%;
+    max-width: 600px;
+    margin: 1.5rem auto;
+    z-index: 2;
+    position: relative;
+  }
+  
+  .waveform {
+    width: 100%;
+    height: 80px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(0, 212, 255, 0.05);
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.1);
+  }
+  
+  .template-preview {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(10px);
+    border: 1px solid #00d4ff44;
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+    margin-bottom: 2rem;
+    z-index: 2;
+    text-align: center;
+    width: 320px;
+  }
+  
+  .template-preview img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.25);
+  }
+  
+  .template-preview audio {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+  
+  .template-preview p {
+    margin-top: 0.5rem;
+    font-weight: 600;
+    color: #cdd6f4;
+  }
+  
+  textarea {
+    z-index: 2;
+    width: 90%;
+    max-width: 600px;
+    height: 160px;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1.5px solid #00d4ff66;
+    border-radius: 14px;
+    color: #e5f7ff;
+    font-size: 1rem;
+    margin-top: 1rem;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.15);
+    transition: border 0.2s;
+  }
+  
+  textarea:focus {
+    border-color: #00d4ff;
+    outline: none;
+  }
+  
+  textarea::placeholder {
+    color: #aab4c8;
+  }
+  
+  .generate-btn {
+    margin-top: 2rem;
+    padding: 0.9rem 2.5rem;
+    background-color: #00d4ff;
+    color: #002635;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+    transition: transform 0.2s ease, background-color 0.3s ease;
+  }
+  
+  .generate-btn:hover {
+    background-color: #00bcd4;
+    transform: scale(1.03);
+  }
+  
+  .processing-container {
+    margin-top: 1.5rem;
+    width: 90%;
+    max-width: 600px;
+    z-index: 2;
+    position: relative;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+  }
+  
+  .loader {
+    font-size: 1.2rem;
+    color: #ffffffcc;
+    margin-bottom: 1rem;
+  }
+  
+  .progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 1rem;
+  }
+  
+  .progress-bar-inner {
+    height: 100%;
+    width: 30%;
+    background: linear-gradient(90deg, #00d4ff, #00bcd4);
+    border-radius: 4px;
+    animation: progress 2s ease-in-out infinite;
+  }
+  
+  @keyframes progress {
+    0% { width: 10%; }
+    50% { width: 70%; }
+    100% { width: 10%; }
+  }
+  
+  .error-message {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: rgba(255, 59, 48, 0.1);
+    border: 1px solid rgba(255, 59, 48, 0.3);
+    border-radius: 8px;
+    color: #ff8a82;
+    max-width: 600px;
+    width: 90%;
+  }
+  
+  .error-message p {
+    margin: 0.5rem 0;
+  }
+  
