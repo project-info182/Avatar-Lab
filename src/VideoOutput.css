@@ -1,0 +1,234 @@
+/* VideoOutput.css - Enhanced Styling */
+
+/* Base Page Styling */
+.video-output-page {
+  padding: 5rem 2rem; /* Increased top/bottom padding */
+  min-height: 100vh;
+  background: linear-gradient(160deg, #0d1117, #1f2937); /* Dark gradient background */
+  color: #f0f0f0; /* Light text color */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Inter', sans-serif; /* Use the Inter font */
+  position: relative; /* Needed for potential background effects */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Page Title */
+.video-output-page h2 {
+  font-size: clamp(2.2rem, 5.5vw, 3.5rem); /* Slightly larger responsive font size */
+  margin-bottom: 4rem; /* More space below title */
+  color: #00eaff; /* Brighter accent color */
+  text-shadow: 0 0 15px rgba(0, 234, 255, 0.6), 0 0 8px rgba(0, 234, 255, 0.4); /* Stronger glow */
+}
+
+/* Main Output Container */
+.output-container {
+  display: flex;
+  flex-direction: column; /* Stack blocks vertically by default */
+  gap: 3rem; /* Increased space between blocks */
+  max-width: 900px; /* Increased max width for the container */
+  width: 100%; /* Full width up to max-width */
+  margin-bottom: 4rem; /* More space below the container */
+}
+
+/* Individual Blocks (Template Preview, Transcript, Video) - Glassmorphism Base */
+.template-preview,
+.transcript-block,
+.video-block {
+  background: rgba(255, 255, 255, 0.1); /* Slightly more transparent white background */
+  backdrop-filter: blur(15px) saturate(180%); /* More blur and saturation */
+  border: 1px solid rgba(0, 234, 255, 0.4); /* Stronger subtle accent border */
+  border-radius: 20px; /* More rounded corners */
+  padding: 2.5rem; /* Increased inner padding */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+  text-align: left; /* Align text left within blocks */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transitions for hover effects */
+}
+
+/* Template Preview Block */
+.template-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items vertically */
+    text-align: center; /* Center text within this block */
+    background: rgba(26, 26, 46, 0.7); /* Use a slightly darker background for contrast */
+    border-color: rgba(192, 57, 244, 0.45); /* Use a different accent color for border */
+}
+
+.template-preview img {
+  width: 180px; /* Slightly larger fixed width for the image */
+  height: auto;
+  border-radius: 10px; /* More rounded image corners */
+  margin-bottom: 1.5rem; /* More space below image */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* Image shadow */
+  border: 1px solid rgba(192, 57, 244, 0.2); /* Subtle border matching the container */
+}
+
+.template-preview audio {
+  width: 100%; /* Audio player fills container width */
+  margin-top: 1.5rem; /* More space above audio */
+  filter: invert(0.9) hue-rotate(180deg) brightness(0.9) contrast(1.1); /* Keep dark mode audio styling */
+}
+
+.template-preview p {
+  margin-top: 1rem; /* More space above template name */
+  font-weight: 600;
+  color: #cdd6f4; /* Secondary text color */
+  font-size: 1.1rem; /* Slightly larger font size */
+}
+
+/* Transcript Block */
+.transcript-block h3 {
+  font-size: 1.5rem; /* Slightly larger */
+  margin-bottom: 1.2rem; /* More space */
+  color: #00eaff; /* Accent color */
+}
+
+.transcript-block p {
+  font-size: 1.05rem; /* Slightly larger */
+  color: #e5f7ff; /* Lighter text color for transcript */
+  line-height: 1.7; /* Improved readability */
+  white-space: pre-wrap; /* Preserve whitespace and line breaks */
+  word-break: break-word; /* Break long words */
+}
+
+/* Video Block */
+.video-block h3 {
+  font-size: 1.5rem; /* Slightly larger */
+  margin-bottom: 1.2rem; /* More space */
+  color: #00eaff; /* Accent color */
+}
+
+.video-block video {
+  width: 100%; /* Video fills container width */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 12px; /* More rounded video corners */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Stronger video shadow */
+  display: block; /* Remove extra space below video */
+  margin-top: 1.5rem; /* More space above video element */
+  border: 1px solid rgba(0, 234, 255, 0.2); /* Subtle border matching the container */
+}
+
+/* Restart Button */
+.restart-btn {
+  padding: 1.2rem 3rem; /* More padding */
+  background: linear-gradient(45deg, #00eaff, #0072ff); /* Gradient background */
+  color: #ffffff; /* White text color */
+  font-weight: bold;
+  font-size: 1.2rem; /* Larger font size */
+  border: none;
+  border-radius: 10px; /* Slightly more rounded corners */
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(0, 234, 255, 0.6); /* Stronger glow effect */
+  transition: all 0.3s ease; /* Smooth transitions */
+  position: relative; /* Needed for potential pseudo-elements */
+  overflow: hidden; /* Hide overflow for effects */
+}
+
+/* Optional: Add a subtle shimmer effect on hover */
+.restart-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: skewX(-20deg);
+    transition: all 0.4s ease;
+}
+
+.restart-btn:hover::before {
+    left: 150%;
+}
+
+.restart-btn:hover {
+  background: linear-gradient(45deg, #00c6ff, #0056b3); /* Slightly darker gradient on hover */
+  transform: scale(1.05) translateY(-3px); /* Lift and scale slightly */
+  box-shadow: 0 0 25px rgba(0, 234, 255, 0.8); /* Stronger glow on hover */
+}
+
+.restart-btn:active {
+    transform: scale(1.02) translateY(-1px); /* Press down effect */
+    box-shadow: 0 0 15px rgba(0, 234, 255, 0.6);
+}
+
+
+/* Responsive Adjustments */
+@media (min-width: 768px) {
+  .output-container {
+    flex-direction: row; /* Arrange blocks side-by-side on larger screens */
+    flex-wrap: wrap; /* Allow wrapping if needed */
+    justify-content: center; /* Center blocks */
+    gap: 2.5rem; /* Adjusted gap for row layout */
+  }
+
+  .template-preview,
+  .transcript-block,
+  .video-block {
+    flex: 1 1 320px; /* Allow blocks to grow/shrink, with a base width */
+    max-width: 400px; /* Increased max width for individual blocks */
+  }
+
+  .template-preview {
+      flex: 0 0 auto; /* Prevent template preview from growing/shrinking much */
+      max-width: 350px; /* Keep template preview relatively small */
+  }
+
+  .transcript-block {
+      flex: 1 1 100%; /* Make transcript block take full width in the row layout */
+      max-width: 800px; /* Increased max width for the transcript block */
+      margin: 0 auto; /* Center the transcript block */
+  }
+
+  .video-block {
+      flex: 1 1 450px; /* Give video block more space */
+      max-width: 700px; /* Increased max width for video block */
+      margin: 0 auto; /* Center the video block */
+  }
+}
+
+@media (max-width: 480px) {
+    .video-output-page {
+        padding: 3rem 1.5rem; /* Adjust padding on small screens */
+    }
+
+    .video-output-page h2 {
+        font-size: clamp(2rem, 7vw, 2.8rem); /* Adjust title size */
+        margin-bottom: 3rem;
+    }
+
+    .output-container {
+        gap: 2rem; /* Adjust gap */
+    }
+
+    .template-preview,
+    .transcript-block,
+    .video-block {
+        padding: 2rem; /* Adjust padding */
+    }
+
+    .template-preview img {
+        width: 150px; /* Keep image size consistent with desktop small */
+    }
+
+     .template-preview p {
+        font-size: 1rem; /* Adjust font size */
+    }
+
+    .transcript-block h3,
+    .video-block h3 {
+        font-size: 1.3rem; /* Adjust headings */
+    }
+
+    .transcript-block p {
+        font-size: 0.95rem; /* Adjust text size */
+    }
+
+    .restart-btn {
+        padding: 1rem 2.5rem; /* Adjust button padding */
+        font-size: 1.1rem; /* Adjust font size */
+    }
+}

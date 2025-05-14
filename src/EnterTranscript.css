@@ -1,0 +1,308 @@
+/* ================================== */
+/* Enhanced EnterTranscript.css       */
+/* ================================== */
+
+/* Ensure :root variables from enhanced HomePage.css or a global file are available */
+/* If not, copy the :root block here */
+/* Example :root needed: */
+
+:root {
+  --font-primary: 'Inter', sans-serif;
+  --font-sci-fi: 'Orbitron', sans-serif; /* Example sci-fi font */
+  --transition-speed-fast: 0.25s;
+  --transition-speed-medium: 0.45s;
+  --transition-speed-slow: 0.65s;
+  --easing-curve: cubic-bezier(0.25, 0.8, 0.25, 1);
+  --easing-curve-bounce: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  --dark-bg: #080710;
+  --dark-bg-gradient: linear-gradient(160deg, #1A1A2E 0%, #0F0F1B 70%, #080710 100%);
+  --dark-text: #EAE6F8;
+  --dark-text-secondary: #A09CB8;
+  --dark-accent1: #00CFE8; /* Cyan */
+  --dark-accent2: #C039F4; /* Purple */
+  --dark-accent3: #F83D7A; /* Pink/Magenta */
+  --dark-card-bg: rgba(26, 26, 46, 0.6); /* Base card background */
+  --dark-card-border: rgba(192, 57, 244, 0.45); /* Base card border */
+  --dark-shadow-color: rgba(0,0,0, 0.6);
+  --dark-glow-color-1-rgb: 0, 207, 232;   /* Cyan RGB */
+  --dark-glow-color-2-rgb: 192, 57, 244;  /* Purple RGB */
+  --dark-glow-color-3-rgb: 248, 61, 122; /* Pink RGB */
+  --et-error-color: #ff6b6b; /* Error text */
+  --et-error-bg: rgba(255, 107, 107, 0.1); /* Error background */
+  --et-error-border: rgba(255, 107, 107, 0.3); /* Error border */
+  --et-glass-bg: rgba(22, 27, 37, 0.4); /* Specific glass background */
+  --et-glass-border: rgba(var(--dark-glow-color-1-rgb), 0.25); /* Specific glass border */
+  --et-glass-blur: 12px; /* Glass blur amount */
+}
+
+/* @import url('...'); needed if fonts not global */
+
+/* --- Base Page Styles --- */
+.transcript-page {
+  position: relative;
+  padding: clamp(3rem, 8vh, 4rem) clamp(1rem, 5vw, 2rem);
+  min-height: 100vh;
+  background-color: var(--dark-bg); /* Base dark background */
+  color: var(--dark-text);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-primary);
+  overflow: hidden; /* Hide overflowing glows */
+}
+/* Animated Gradient Background */
+.transcript-page::before {
+  content: '';
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  z-index: -1; /* Behind content */
+  background: var(--dark-bg-gradient);
+  background-size: 300% 300%;
+  animation: gradient-pan 30s ease infinite alternate;
+  transition: background var(--transition-speed-slow) ease;
+}
+@keyframes gradient-pan {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+/* Optional overlay */
+.background-overlay {
+    position: fixed; inset: 0; z-index: -1;
+    pointer-events: none;
+    /* Example: Subtle noise or pattern if desired */
+    /* background-image: url('/path/to/noise.png'); */
+    /* opacity: 0.05; */
+}
+
+/* --- Page Title --- */
+.transcript-page .page-title { /* Use class for specificity */
+  font-family: var(--font-sci-fi); /* Optional sci-fi font */
+  font-size: clamp(2rem, 5.5vw, 2.8rem);
+  margin-bottom: 2.5rem;
+  color: var(--dark-text);
+  font-weight: 700;
+  position: relative;
+  /* Consistent glow effect */
+  text-shadow:
+    0 0 7px rgba(var(--dark-glow-color-1-rgb), 0.9),
+    0 0 15px rgba(var(--dark-glow-color-1-rgb), 0.6),
+    0 0 25px rgba(var(--dark-glow-color-2-rgb), 0.4);
+  transition: text-shadow var(--transition-speed-medium) ease, color var(--transition-speed-fast) ease;
+  cursor: default;
+  z-index: 1; /* Ensure title is above background */
+}
+/* Optional hover for title */
+.transcript-page .page-title:hover {
+  color: #fff;
+  text-shadow:
+    0 0 8px rgba(var(--dark-glow-color-1-rgb), 1),
+    0 0 18px rgba(var(--dark-glow-color-1-rgb), 0.7),
+    0 0 35px rgba(var(--dark-glow-color-2-rgb), 0.6),
+    0 0 60px rgba(var(--dark-glow-color-2-rgb), 0.3);
+}
+/* Optional underline */
+.transcript-page .page-title::after {
+    content: ''; position: absolute; bottom: -10px; left: 50%;
+    transform: translateX(-50%); width: 90px; height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--dark-accent1), var(--dark-accent2));
+}
+
+/* --- Glassmorphism Base --- */
+.glassmorphism {
+  background: var(--et-glass-bg); /* Use specific glass background */
+  backdrop-filter: blur(var(--et-glass-blur));
+  -webkit-backdrop-filter: blur(var(--et-glass-blur));
+  border: 1px solid var(--et-glass-border); /* Use specific glass border */
+  box-shadow: 0 8px 32px rgba(var(--dark-shadow-color), 0.4);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 18px; /* Consistent rounding */
+  z-index: 1; /* Ensure glass elements are above background */
+}
+.glassmorphism:hover { /* Subtle hover for glass elements */
+    border-color: rgba(var(--dark-glow-color-1-rgb), 0.4); /* Brighter cyan border */
+    box-shadow: 0 10px 40px rgba(var(--dark-shadow-color), 0.5);
+}
+
+/* --- Template Preview Card --- */
+.template-preview.glassmorphism {
+  padding: 1.5rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  width: 100%;
+  max-width: 340px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.template-preview.glassmorphism:hover {
+    transform: translateY(-5px) scale(1.02); /* Add scale */
+    border-color: rgba(var(--dark-glow-color-1-rgb), 0.4);
+    box-shadow: 0 0 35px rgba(var(--dark-glow-color-1-rgb), 0.15),
+                0 6px 25px rgba(0,0,0,0.35); /* Enhanced shadow */
+}
+
+.template-preview video,
+.template-preview img {
+  width: 100%; height: auto; max-height: 200px; object-fit: cover;
+  border-radius: 12px; margin-bottom: 1rem;
+  background-color: rgba(0,0,0,0.3);
+  border: 1px solid rgba(var(--dark-glow-color-1-rgb), 0.1);
+}
+
+.template-preview audio {
+  width: 100%; margin-top: 0.8rem; height: 40px;
+  filter: invert(0.9) hue-rotate(180deg) brightness(0.9) contrast(1.1);
+}
+.template-preview audio::-webkit-media-controls-panel {
+  background-color: rgba(var(--dark-glow-color-1-rgb), 0.1);
+  border-radius: 8px;
+}
+
+.template-preview p {
+  margin-top: 0.8rem; font-weight: 600; color: var(--dark-text);
+  font-size: 0.95rem;
+}
+
+/* --- Textarea --- */
+textarea.transcript-input.glassmorphism {
+  /* z-index already set by .glassmorphism */
+  width: 90%; max-width: 650px; height: 180px; padding: 1.2rem;
+  color: var(--dark-text); font-size: 1rem; line-height: 1.6;
+  margin-top: 1rem; resize: vertical;
+  border-radius: 16px; /* Match glassmorphism rounding */
+  border-color: rgba(var(--dark-glow-color-1-rgb), 0.3); /* Use variable from glass base */
+  box-shadow: 0 5px 20px rgba(var(--dark-shadow-color), 0.25);
+}
+
+textarea.transcript-input:focus {
+  border-color: var(--dark-accent1); /* Bright cyan border on focus */
+  box-shadow: 0 0 15px rgba(var(--dark-glow-color-1-rgb), 0.4), /* Cyan glow */
+              0 0 25px rgba(var(--dark-glow-color-1-rgb), 0.2),
+              inset 0 0 8px rgba(var(--dark-glow-color-1-rgb), 0.1); /* Inner glow */
+  outline: none;
+}
+
+textarea.transcript-input::placeholder {
+  color: var(--dark-text-secondary); /* Use secondary text color */
+  opacity: 0.7;
+}
+
+/* --- Generate Button (Enhanced Style) --- */
+.generate-btn.styled-button {
+  margin-top: 2.5rem;
+  padding: 1rem 3rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #EAE6F8; /* Light text */
+  background-image: linear-gradient(100deg, var(--dark-accent1), var(--dark-accent2), var(--dark-accent3), var(--dark-accent1));
+  background-size: 250% auto;
+  background-position: left center;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all var(--transition-speed-medium) ease;
+  box-shadow: 0 5px 20px -5px rgba(var(--dark-glow-color-1-rgb),0.6),
+              0 4px 15px -3px rgba(var(--dark-glow-color-2-rgb),0.4);
+  position: relative; z-index: 1; overflow: hidden;
+}
+.generate-btn.styled-button span { position: relative; z-index: 2; }
+
+.generate-btn.styled-button:hover:not(:disabled) {
+  background-position: right center;
+  box-shadow: 0 8px 30px -8px rgba(var(--dark-glow-color-1-rgb),0.8),
+              0 6px 25px -5px rgba(var(--dark-glow-color-2-rgb),0.6),
+              0 0 15px rgba(var(--dark-glow-color-3-rgb),0.4);
+  transform: scale(1.05) translateY(-3px);
+}
+.generate-btn.styled-button:active:not(:disabled) {
+  transform: scale(1.02) translateY(-1px);
+}
+.generate-btn.styled-button:disabled {
+  background-image: none; background-color: #444; color: #888;
+  cursor: not-allowed; box-shadow: none; transform: none;
+}
+
+/* --- Processing/Loader Styles --- */
+.processing-container.glassmorphism {
+  margin-top: 2rem; width: 90%; max-width: 600px; z-index: 1; /* Use z-index from glassmorphism */
+  position: relative; border-radius: 14px; padding: 1.8rem;
+  border-color: rgba(var(--dark-glow-color-1-rgb), 0.25);
+}
+
+.loader {
+  font-size: 1.1rem; color: var(--dark-text-secondary); margin-bottom: 1rem;
+}
+
+.progress-bar {
+  width: 100%; height: 10px; background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px; overflow: hidden; margin-top: 1rem; position: relative;
+}
+.progress-bar::after { /* Shimmer effect */
+    content: ''; position: absolute; top: 0; left: 0; height: 100%; width: 50px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+    animation: shimmer 2.5s infinite linear;
+}
+
+.progress-bar-inner {
+  height: 100%; width: 0%; /* Controlled by JS or animation */
+  background: linear-gradient(90deg, var(--dark-accent1), var(--dark-accent2));
+  border-radius: 5px; animation: progress-indeterminate 2.5s ease-in-out infinite;
+  transition: width 0.5s ease;
+}
+
+@keyframes progress-indeterminate {
+  0% { transform: translateX(-100%) scaleX(0.5); opacity: 0.6;}
+  50% { transform: translateX(0) scaleX(0.8); opacity: 1;}
+  100% { transform: translateX(100%) scaleX(0.5); opacity: 0.6;}
+}
+@keyframes shimmer {
+    0% { transform: translateX(-100px) skewX(-20deg); }
+    100% { transform: translateX(650px) skewX(-20deg); }
+}
+/* Remove animation if updating width via JS: animation: none; */
+
+
+/* --- Error Message Styles --- */
+.error-message.glassmorphism {
+  margin-top: 2rem; padding: 1.2rem; border-radius: 12px;
+  color: var(--et-error-color); max-width: 600px; width: 90%; z-index: 1; /* Use z-index from glassmorphism */
+  background: rgba(var(--et-error-bg), 0.6); /* Error color glass */
+  border: 1px solid var(--et-error-border);
+  box-shadow: 0 5px 15px rgba(var(--et-error-color), 0.15);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+}
+
+.error-message p { margin: 0.5rem 0; line-height: 1.5; }
+.error-message p:first-child { font-weight: bold; }
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .transcript-page { padding: 3rem 1rem; }
+    textarea.transcript-input { height: 150px; }
+    .generate-btn.styled-button { padding: 0.8rem 2rem; font-size: 1rem; }
+}
+@media (max-width: 600px) {
+    .template-preview.glassmorphism { max-width: 90%; }
+    .transcript-page .page-title { font-size: clamp(1.8rem, 5vw, 2.2rem); }
+}
+
+/* --- Accessibility: Reduce Motion --- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    animation-play-state: paused !important;
+  }
+  .processing-container, .error-message, textarea.transcript-input, .template-preview /* etc */ {
+    opacity: 1 !important; transform: none !important; /* Ensure visibility if animations were used */
+  }
+   .transcript-page::before, .progress-bar-inner, .progress-bar::after {
+    animation: none !important; /* Stop background animations */
+  }
+  .generate-btn.styled-button:hover:not(:disabled) {
+       transform: none !important; /* Disable hover transforms */
+   }
+}
+

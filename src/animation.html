@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Advanced Avatar Build Animation</title>
+<style>
+  body {
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .layer {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.5s ease-in-out;
+  }
+</style>
+</head>
+<body>
+
+<div id="container">
+  <img src="wireframe.png" class="layer" id="wireframe">
+  <img src="skin.png" class="layer" id="skin">
+  <img src="features.png" class="layer" id="features">
+  <img src="hair.png" class="layer" id="hair">
+  <img src="final.png" class="layer" id="final">
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+<script>
+anime.timeline({ easing: 'easeInOutSine', duration: 1200 })
+  .add({
+    targets: '#wireframe',
+    opacity: [0, 1],
+    scale: [0.8, 1],
+  })
+  .add({
+    targets: '#skin',
+    opacity: [0, 1],
+    scale: [0.8, 1],
+  })
+  .add({
+    targets: '#features',
+    opacity: [0, 1],
+    scale: [0.8, 1],
+  })
+  .add({
+    targets: '#hair',
+    opacity: [0, 1],
+    scale: [0.8, 1],
+  })
+  .add({
+    targets: '#final',
+    opacity: [0, 1],
+    scale: [0.8, 1],
+  });
+</script>
+
+</body>
+</html>
