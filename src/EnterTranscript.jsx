@@ -14,7 +14,6 @@ const EnterTranscript = () => {
   const [progressPercentage, setProgressPercentage] = useState(0);
 
   const backgroundContainerRef = useRef(null);
-  // Removed: const simulationIntervalRef = useRef(null);
 
   useEffect(() => {
     if (!videoTemplate?.name || !audioTemplate?.audioUrl) {
@@ -41,6 +40,7 @@ const EnterTranscript = () => {
     const canvas = document.createElement('canvas');
     currentContainer.appendChild(canvas);
     const ctx = canvas.getContext('2d');
+    canvas.style.pointerEvents = 'none'; 
 
     let width, height;
     const particles = [];
@@ -149,7 +149,6 @@ const EnterTranscript = () => {
     };
   }, [backgroundContainerRef]);
 
-
   const handleGenerate = async () => {
     if (!transcript.trim()) {
       alert('Please enter a transcript!');
@@ -167,8 +166,6 @@ const EnterTranscript = () => {
 
     const backendUrl = 'http://localhost:8000';
     const LatentSyncUrl = 'http://localhost:6900';
-
-    // Removed simulation interval logic
 
     try {
       setProgressPercentage(5); // Progress: TTS about to start
@@ -223,9 +220,8 @@ const EnterTranscript = () => {
       const finalVideoBlob = await latentSyncResponse.blob();
       const finalVideoUrl = URL.createObjectURL(finalVideoBlob);
       setProgressPercentage(95); // Progress: Lip-sync completed
-      setStatus('Video generated successfully!'); // This status is used in the finally block logic
+      setStatus('Video generated successfully!');
 
-      // history.push will occur, then the finally block runs.
       history.push('/video-output', {
         videoTemplate,
         audioTemplate,
@@ -240,28 +236,14 @@ const EnterTranscript = () => {
       setStatus('Generation failed');
       setProgressPercentage(0); // Reset progress on error
     } finally {
-      // Removed: Clearing of simulationIntervalRef
-
-      // This logic correctly uses the component's state `error` and `status`
-      // to determine if the operation was successful before setting progress to 100%.
-      // If an error occurred, `catch` would have set `status` to 'Generation failed'
-      // and `error` to the error message, so this condition won't pass.
-      // `status` (state) is 'Video generated successfully!' only if the try block completed all steps.
       if (!error && status === 'Video generated successfully!') {
         setProgressPercentage(100);
       }
-      
-      // This timeout allows the user to see the final status/progress before UI elements (like button state) change.
-      // If navigation to /video-output happens, these state changes might apply to an unmounting component,
-      // which is generally fine but won't be visible.
-      // If an error occurred, isGenerating becomes false, and status remains 'Generation failed'.
+
       setTimeout(() => {
         setIsGenerating(false);
-        // Only set status to 'Ready' if the entire process was successful and the component hasn't unmounted.
-        // Given `history.push`, this component will likely unmount on success, so 'Ready' state here
-        // is more of a cleanup if navigation didn't occur or was delayed.
         if (!error && status === 'Video generated successfully!') {
-            setStatus('Ready');
+          setStatus('Ready');
         }
       }, 2000);
     }
@@ -295,28 +277,31 @@ const EnterTranscript = () => {
         {/* 2D Canvas will be appended here */}
       </div>
       <div className="background-overlay" style={{ zIndex: 1 }}></div>
-      
+
       <div style={{ position: 'relative', zIndex: 2, width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px', boxSizing: 'border-box' }}>
         <h2 className="page-title">Enter Your Transcript</h2>
-        <div className="template-preview glassmorphism">
-          <video
-            key={videoTemplate.imageUrl}
-            src={videoTemplate.imageUrl}
-            width="300"
-            controls
-            muted
-            playsInline
-            poster={videoTemplate.posterUrl || "/assets/placeholder_video.jpg"}
-            preload="metadata"
-          >
-            Your browser does not support the video tag.
-          </video>
-          <p><strong>{videoTemplate.name}</strong></p>
-          <audio controls key={audioTemplate.audioUrl}>
-            <source src={audioTemplate.audioUrl} type={`audio/${audioTemplate.audioUrl.split('.').pop()}`} />
-            Your browser does not support the audio element.
-          </audio>
-        </div>
+
+        {!isGenerating && (
+          <div className="template-preview glassmorphism">
+            <video
+              key={videoTemplate.imageUrl}
+              src={videoTemplate.imageUrl}
+              width="300"
+              muted
+              autoPlay
+              poster={videoTemplate.posterUrl || "/assets/placeholder_video.jpg"}
+              preload="metadata"
+            >
+              Your browser does not support the video tag.
+            </video>
+            <p><strong>{videoTemplate.name}</strong></p>
+            <audio controls key={audioTemplate.audioUrl}>
+              <source src={audioTemplate.audioUrl} type={`audio/${audioTemplate.audioUrl.split('.').pop()}`} />
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+        )}
+
         <textarea
           className="transcript-input glassmorphism"
           placeholder="Type or paste your script here..."
@@ -332,25 +317,23 @@ const EnterTranscript = () => {
         >
           <span>{isGenerating ? 'Generating...' : 'Generate Talking Head Video'}</span>
         </button>
+
         {isGenerating && (
           <div className="processing-container glassmorphism">
             <div className="loader">⏳ {status} - {progressPercentage}%</div>
             <div className="progress-bar">
               <div
                 className="progress-bar-inner"
-                style={{ width: `${progressPercentage}%`, animation: 'none' }} // animation: 'none' is good here as updates are discrete
+                style={{ width: `${progressPercentage}%`, animation: 'none' }}
               ></div>
             </div>
           </div>
         )}
+
         {error && (
           <div className="error-message glassmorphism">
             <p>❌ Error: {error}</p>
-            {videoTemplate?.name && audioTemplate?.audioUrl ? (
-              <p>Please try again or check your backend services.</p>
-            ) : (
-              <p>Template data might be missing or there was an error loading it.</p>
-            )}
+            <p>Please try again or check your backend services.</p>
           </div>
         )}
       </div>
