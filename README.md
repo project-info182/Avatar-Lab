@@ -53,7 +53,7 @@ This project contains a frontend, backend, and AI model components.
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/project-info182/Avatar-Lab.git](https://github.com/project-info182/Avatar-Lab.git)
+    git clone https://github.com/project-info182/Avatar-Lab.git
     cd Avatar-Lab
     ```
 
