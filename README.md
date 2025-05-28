@@ -132,17 +132,6 @@ This project contains a frontend, backend, and AI model components.
 
 ---
 
-## ⚙️ Software Development Life Cycle (SDLC)
-
-### Custom SDLC: Modified Waterfall with Parallel Model Integration for AI Pipelines
-
-![SDLC Diagram](https://github.com/project-info182/Avatar-Lab/blob/main/SDLC.jpg)
-*Caption: Our tailored SDLC approach balancing structured development with the iterative nature of AI model integration.*
-
-This model allows for foundational planning (requirements, design) followed by parallel tracks for core software development and AI model research/integration, with feedback loops ensuring cohesion.
-
----
-
 ## 🔬 Models We Explored
 
 *(This section is good as is, lists alternatives considered. No changes needed here unless you want to elaborate on *why* the chosen ones were superior for your specific needs in more detail than the "Models Chosen" section.)*
