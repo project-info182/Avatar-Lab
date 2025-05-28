@@ -121,7 +121,7 @@ This project contains a frontend, backend, and AI model components.
 
 ## 🛠️ Workflow: From Text to Expressive Avatar
 
-![Avatar Generation Workflow](https://github.com/project-info182/Avatar-Lab/blob/94b4663f4856a9e8b0cbef705152684d41c7a8ff/WorkFlow%20Final.png)
+![Avatar Generation Workflow](https://github.com/project-info182/Avatar-Lab/blob/c3d02c133d499c9954853118c1e4d6110fbf05f5/Workflow.png)
 *Caption: Step-by-step process from user input to final animated avatar.*
 
 1.  selects avatar/voice preferences and User inputs text/script.
