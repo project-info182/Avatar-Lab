@@ -93,7 +93,7 @@ This project contains a frontend, backend, and AI model components.
 
 ## 🧬 System Architecture
 
-![System Architecture Diagram for Avatar Lab](https://github.com/project-info182/Avatar-Lab/blob/bff0709b2070fcd5a1f21bac0176e9f4f9d9bb30/SYSTEM%20ARCHITECTURE.png)
+![System Architecture Diagram for Avatar Lab](https://github.com/project-info182/Avatar-Lab/blob/46361b8df980249181c82c540b1f1bfc54f374e7/Architecture.png)
 *Caption: High-level overview of Avatar Lab's components and data flow.*
 
 ---
