@@ -37,59 +37,204 @@ Avatar Lab delivers avatars with:
 
 ---
 
-## 🚀 Getting Started
-
-This project contains a frontend, backend, and AI model components.
-
-### Prerequisites
-- React router v5
-- Node.js (e.g., v18.x or later)
-- npm / yarn
-- Python (e.g., v3.9+) & pip
-- MongoDB instance (local or cloud)
-- Specific Python libraries for AI models (e.g., PyTorch, Transformers - list them)
-
-### Installation
-
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/project-info182/Avatar-Lab.git
-    cd Avatar-Lab
-    ```
-
-2.  **Backend Setup:**
-    ```bash
-    cd backend # Or your backend folder name
-    npm install
-    # Create a .env file based on .env.example and configure variables (DB_URI, ports etc.)
-    python tts.py ( starting zonos api)
-
-    python animation.py (starting LatentSync api)
-    ```
-
-3.  **Frontend Setup:**
-    ```bash
-    cd ../frontend # Or your frontend folder name (e.g., the one with package.json for Next.js app)
-    npm install
-    # Configure any necessary environment variables for the frontend (e.g., API endpoint)
-    npm run dev
-    ```
-
-4.  **AI Model Setup (Zonos TTS & LatentSync):**
-    *(Detailed instructions needed here)*
-    - Create 2 virtual environment setup for 2 models (e.g., `python -m venv .venv && source .venv/bin/activate`)
-    - `pip install -r requirements.txt` (different requirements for each model)
-    - Downloading pre-trained model weights.
-    - Configuration for model API endpoints as they run as separate services.
-
-### Basic Usage / API Interaction
-- Access the web interface at `http://localhost:3000` (or your frontend port).
-- API endpoints (example):
-    - `POST /api/generate-speech` (Input: text, voice_id; Output: audio_file_url)
-    - `POST /api/lipsync` (Input: video_url, audio_file_url; Output: video_file_url)
-
+Here’s an updated and detailed **"Getting Started"** section for your README. It includes step-by-step instructions for setting up the full stack and AI models, creating isolated environments, installing dependencies, and running everything:
 
 ---
+
+## 🚀 Getting Started
+
+This project is divided into **Frontend**, **Backend**, and **AI Models** (Zonos TTS & LatentSync). To run Avatar Lab locally, follow these steps:
+
+---
+
+### 🧩 Prerequisites
+
+Ensure you have the following installed:
+
+* **Node.js** (v18.x or newer)
+* **npm** or **Yarn**
+* **Python** (v3.9 or later recommended)
+* **pip** (Python package installer)
+* **MongoDB** (local or hosted instance like MongoDB Atlas)
+* **Git** (for cloning the repo)
+* **ffmpeg** (for audio/video processing)
+* **Virtualenv** or Python `venv` module
+
+---
+
+## 🛠 Project Setup
+
+### 1. **Clone the Repository**
+
+```bash
+git clone https://github.com/project-info182/Avatar-Lab.git
+cd Avatar-Lab
+```
+
+---
+
+### 2. **Set Up Backend**
+
+```bash
+cd backend
+npm install
+```
+
+#### Configure Environment Variables
+
+* Create a `.env` file in the backend directory based on `.env.example`:
+
+```bash
+cp .env.example .env
+```
+
+* Set your MongoDB URI, ports, and any other secrets.
+
+#### Run Backend Server
+
+```bash
+npm start
+```
+
+> The backend will run on `http://localhost:5000` by default.
+
+---
+
+### 3. **Set Up Frontend**
+
+```bash
+cd ../frontend
+npm install
+```
+
+#### Environment Setup
+
+* If required, create a `.env.local` file for the frontend:
+
+```bash
+NEXT_PUBLIC_API_BASE_URL=http://localhost:5000
+```
+
+#### Run the Frontend
+
+```bash
+npm run dev
+```
+
+> Access the web app at: `http://localhost:3000`
+
+---
+
+### 4. **Set Up AI Models**
+
+> Each model runs as a **separate Python service**. Use **virtual environments** to manage dependencies cleanly.
+
+---
+
+#### 📢 A. Zonos TTS (Speech Synthesis)
+**recommended** refer official repo link for installation process:[Zonos TTS GitHub](https://github.com/Zyphra/Zonos)
+
+```bash
+cd ../models/zonos-tts  # adjust path based on your repo
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+pip install --upgrade pip
+pip install -r tts-requirements.txt
+```
+
+##### Download Pretrained Weights
+
+> Check the official [Zonos TTS GitHub](https://github.com/Zyphra/Zonos) for model weight links and instructions on how to download model.
+
+```bash
+# Example:
+wget https://some-url-to-zonos-model-weights/model.pth -O models/model.pth
+```
+
+##### Start Zonos TTS API
+
+```bash
+python tts.py
+```
+
+> Zonos TTS will run on `http://localhost:8000` (or whatever port you've configured).
+
+---
+
+#### 🎥 B. LatentSync (Facial Animation) 
+**recommended**: refer official repo link for installation process: [LatentSync GitHub](https://github.com/bytedance/LatentSync)
+
+```bash
+cd ../latent-sync  # adjust path based on your repo
+python -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip
+pip install -r latentsync-requirements.txt
+```
+
+##### Download Pretrained Weights
+
+> Check the official [LatentSync GitHub](https://github.com/bytedance/LatentSync) for checkpoint files and instructions on how to download model.
+
+```bash
+# Example:
+wget https://some-url-to-latentsync-checkpoint/ckpt.pth -O checkpoints/ckpt.pth
+```
+
+##### Start LatentSync API
+
+```bash
+python animation.py
+```
+
+> LatentSync will run on `http://localhost:6900` (or configured port).
+
+---
+
+### 🧪 Final Test
+
+Once all components are running:
+
+* Open `http://localhost:3000`
+* Enter a text prompt and select an avatar
+* Submit to generate audio → pass to LatentSync → receive final animated avatar video
+
+---
+
+### 🛠 Sample API Endpoints (Backend)
+
+* `POST /api/generate-speech`
+
+  * Input: `{ text: "Hello", voice_id: "female_01" }`
+  * Output: `{ audio_url: "/media/audio123.wav" }`
+
+* `POST /api/lipsync`
+
+  * Input: `{ video_url: "base_avatar.mp4", audio_url: "/media/audio123.wav" }`
+  * Output: `{ video_url: "/media/avatar_out.mp4" }`
+
+---
+## ✅ Summary Checklist
+
+| Component       | Installed | Running | Port  |
+| --------------- | --------- | ------- | ----- |
+| MongoDB         | ✅       | ✅      | 27017 |
+| Frontend (React)| ✅       | ✅      | 3000  |
+| Zonos TTS       | ✅       | ✅      | 8000  |
+| LatentSync      | ✅       | ✅      | 6900  |
+
+---
+
+## 📎 Troubleshooting
+
+* **CORS errors:** Ensure frontend has the correct `NEXT_PUBLIC_API_BASE_URL` pointing to backend.
+* **Port conflicts:** Change port numbers in `.env` files and Python scripts if needed.
+* **Model not responding:** Double-check virtual environments and that you're using the correct Python version (3.9+).
+* **Missing model files:** Re-check the GitHub repo or authors for links to required weights.
+* **Make sure you are using correct valid paths for models and other components in project (it will be based on your system).3**
+
+---
+
 
 ## 🧬 System Architecture
 
@@ -104,7 +249,7 @@ This project contains a frontend, backend, and AI model components.
 - ⚛️ **React.js (Next.js):** Component-based UI, SSR, and routing.
 - 🎨 **CSS:** Utility-CSS  for rapid  styling.
 
-### AI & Deep Learning
+### AI & Deep Learning 
 - 🧠 **Zonos TTS:** Chosen for its lightweight architecture and natural speech synthesis.
 - 🧍‍♂️ **LatentSync:** Selected for superior lip-sync accuracy and realistic avatar animation.
 
@@ -191,7 +336,7 @@ Avatar Lab is ideal for enhancing applications in:
     - 🌐 Finalized **Zonos TTS** for speech synthesis.
     - 🎥 Finalized **LatentSync** for facial animation.
 - **Prototyping & Foundation:**
-    - 🖥️ Initial frontend structure designed with React.js and Tailwind CSS.
+    - 🖥️ Initial frontend structure designed with React.js and CSS.
     - ⚙️ Core backend API developed using Node.js & Express.js.
     - 🔗 Proof-of-concept integration of TTS and facial animation models with the backend.
 
@@ -209,10 +354,6 @@ Avatar Lab is ideal for enhancing applications in:
     - [ ] Optimize model inference times and resource usage.
     - [ ] Enhance backend architecture for scalability and reliability.
 
-### 🌟 Future Vision
-- [ ] Real-time avatar interaction capabilities.
-- [ ] Integration with VR/AR platforms.
-- [ ] Community marketplace for avatars and voice models.
 
 ---
 
