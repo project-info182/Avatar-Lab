@@ -383,17 +383,18 @@ For major changes, please open an issue first to discuss what you would like to 
 
 ---
 
-## 👥 Contributors
+### 👥 Contributors
 
-A big thank you to all our contributors:
+| Contributor | Milestones | Link 1 | Link 2 |
+|-------------|-------------|--------|--------|
+| [**Shashank Reddy Y**](https://github.com/Shashank-Reddy-Y) | ✅ | [🔗](https://drive.google.com/file/d/1LSdhs9I4q9J3JzZuaGZ9N7Xv_AcpcDro/view) | [🔗](https://www.youtube.com/watch?v=2OAat-O9tiI) |
+| [**Naveen Chandra Kanth**](https://github.com/NaveenCK-10) | ✅ | [🔗](https://drive.google.com/file/d/1Rts7q7TaapI5omlw0qFV_KxFqUi8bThU/view) | [🔗](https://youtu.be/lwAWlZbiIEQ) |
+| [**Satvik V**](https://github.com/satvik2106) | ✅ | [🔗](https://github.com/satvik2106) | [🔗](https://github.com/satvik2106) |
+| [**Aditi**](https://github.com/Aditi500-ace) | ✅ | [🔗](https://github.com/Aditi500-ace) | [🔗](https://github.com/Aditi500-ace) |
+| [**Monisha Sarai**](https://github.com/monishasarai) | ✅ | [🔗](https://github.com/monishasarai) | [🔗](https://github.com/monishasarai) |
+| [**Spandana**](https://github.com/Span1531) | ✅ | [🔗](https://github.com/Span1531) | [🔗](https://github.com/Span1531) |
+| [**Vajra Chaitanya**](https://github.com/Vajra-Chaitanya) | ✅ | [🔗](https://drive.google.com/file/d/1lF_ZUxjrVLVz_F2whhQSTp726MF5AOzZ/view) | [🔗](https://drive.google.com/file/d/1ZTL0fw-yTPf6SjyKqk-O561yviX7VjBr/view ) |
 
-- [**Shashank Reddy Y**](https://github.com/Shashank-Reddy-Y)
-- [**Naveen Chandra Kanth**](https://github.com/NaveenCK-10)
-- [**Satvik V**](https://github.com/satvik2106)
-- [**Aditi**](https://github.com/Aditi500-ace)
-- [**Monisha Sarai**](https://github.com/monishasarai)
-- [**Spandana**](https://github.com/Span1531)
-- [**Vajra Chaitanya**](https://github.com/Vajra-Chaitanya)
 
 ---
 
