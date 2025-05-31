@@ -390,7 +390,7 @@ For major changes, please open an issue first to discuss what you would like to 
 | [**Shashank Reddy Y**](https://github.com/Shashank-Reddy-Y) | ✅ | [🔗](https://drive.google.com/file/d/1LSdhs9I4q9J3JzZuaGZ9N7Xv_AcpcDro/view) | [🔗](https://www.youtube.com/watch?v=2OAat-O9tiI) |
 | [**Naveen Chandra Kanth**](https://github.com/NaveenCK-10) | ✅ | [🔗](https://drive.google.com/file/d/1Rts7q7TaapI5omlw0qFV_KxFqUi8bThU/view) | [🔗](https://youtu.be/lwAWlZbiIEQ) |
 | [**Satvik V**](https://github.com/satvik2106) | ✅ | [🔗](https://drive.google.com/file/d/1s4eZk3HqT5uchN9sxeLcd6HxGL5uHqRg/view?usp=sharing ) | [🔗](https://youtu.be/fjwtNnMoR7U) |
-| [**Aditi**](https://github.com/Aditi500-ace) | ✅ | [🔗](https://github.com/Aditi500-ace) | [🔗](https://github.com/Aditi500-ace) |
+| [**Aditi**](https://github.com/Aditi500-ace) | ✅ | [🔗](https://drive.google.com/file/d/14aIGteYMLMZRihXWLoF2emBLyeJd6uc0/view) | [🔗](https://www.youtube.com/watch?v=PbUxsLS-Z1w) |
 | [**Monisha Sarai**](https://github.com/monishasarai) | ✅ | [🔗](https://drive.google.com/file/d/1-FPxfE8rQpelFUe8QxZLEJ-O1JqGXROb/view?usp=sharing) | [🔗](https://youtu.be/MwL9nOHvudY2) |
 | [**Spandana**](https://github.com/Span1531) | ✅ | [🔗](https://youtu.be/4SZgv0JUSOE?si=lXV6CaAiMzR5eZVC) | [🔗](https://youtu.be/u2-8Ueby_Tc?si=OfX6cu478gJk_cc6) |
 | [**Vajra Chaitanya**](https://github.com/Vajra-Chaitanya) | ✅ | [🔗](https://drive.google.com/file/d/1lF_ZUxjrVLVz_F2whhQSTp726MF5AOzZ/view) | [🔗](https://drive.google.com/file/d/1ZTL0fw-yTPf6SjyKqk-O561yviX7VjBr/view ) |
