@@ -386,7 +386,7 @@ For major changes, please open an issue first to discuss what you would like to 
 ### 👥 Contributors
 
 | Contributor | Milestones | Link 1 | Link 2 |  PPT MS1  |  PPT MS2  |
-|-------------|-------------|--------|--------|
+|-------------|-------------|--------|--------|--------|--------|
 | [**Shashank Reddy Y**](https://github.com/Shashank-Reddy-Y) | ✅ | [🔗](https://drive.google.com/file/d/1LSdhs9I4q9J3JzZuaGZ9N7Xv_AcpcDro/view) | [🔗](https://www.youtube.com/watch?v=2OAat-O9tiI) |[🔗](https://drive.google.com/file/d/1LSdhs9I4q9J3JzZuaGZ9N7Xv_AcpcDro/view) |[🔗](https://drive.google.com/file/d/1LSdhs9I4q9J3JzZuaGZ9N7Xv_AcpcDro/view) |
 | [**Naveen Chandra Kanth**](https://github.com/NaveenCK-10) | ✅ | [🔗](https://drive.google.com/file/d/1Rts7q7TaapI5omlw0qFV_KxFqUi8bThU/view) | [🔗](https://youtu.be/lwAWlZbiIEQ) |[🔗](https://drive.google.com/file/d/1LSdhs9I4q9J3JzZuaGZ9N7Xv_AcpcDro/view) |[🔗](https://drive.google.com/file/d/1LSdhs9I4q9J3JzZuaGZ9N7Xv_AcpcDro/view) |
 | [**Satvik V**](https://github.com/satvik2106) | ✅ | [🔗](https://drive.google.com/file/d/1s4eZk3HqT5uchN9sxeLcd6HxGL5uHqRg/view?usp=sharing ) | [🔗](https://youtu.be/fjwtNnMoR7U) |[🔗](https://drive.google.com/file/d/1LSdhs9I4q9J3JzZuaGZ9N7Xv_AcpcDro/view) |[🔗](https://drive.google.com/file/d/1LSdhs9I4q9J3JzZuaGZ9N7Xv_AcpcDro/view) |
