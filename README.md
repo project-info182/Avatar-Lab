@@ -151,13 +151,13 @@ pip install -r tts-requirements.txt
 wget https://some-url-to-zonos-model-weights/model.pth -O models/model.pth
 ```
 
-##### Start Zonos TTS API
+##### Start E2 F5 TTS API
 
 ```bash
 python tts.py
 ```
 
-> Zonos TTS will run on `http://localhost:8000` (or whatever port you've configured).
+> E2 F5 TTS will run on `http://localhost:8000` (or whatever port you've configured).
 
 ---
 
@@ -220,7 +220,7 @@ Once all components are running:
 | --------------- | --------- | ------- | ----- |
 | MongoDB         | ✅       | ✅      | 27017 |
 | Frontend (React)| ✅       | ✅      | 3000  |
-| Zonos TTS       | ✅       | ✅      | 8000  |
+| E2 F5 TTS       | ✅       | ✅      | 8000  |
 | LatentSync      | ✅       | ✅      | 6900  |
 
 ---
@@ -250,7 +250,7 @@ Once all components are running:
 - 🎨 **CSS:** Utility-CSS  for rapid  styling.
 
 ### AI & Deep Learning 
-- 🧠 **Zonos TTS:** Chosen for its lightweight architecture and natural speech synthesis.
+- 🧠 **E2 F5 TTS:** Chosen for its lightweight architecture and natural speech synthesis.
 - 🧍‍♂️ **LatentSync:** Selected for superior lip-sync accuracy and realistic avatar animation.
 
 ### Backend
@@ -286,6 +286,7 @@ Once all components are running:
 - [**Zonos TTS**](https://github.com/Zyphra/Zonos)
 - [**Bark TTS**](https://github.com/suno-ai/bark)
 - [**Spark TTS**](https://github.com/SparkAudio/Spark-TTS)
+- [**E2 F5 TTS**](https://github.com/SWivid/F5-TTS.git) 
 
 ### 🎥 Diffusion-Based Facial Animation
 - [**DiffPoseTalker**](https://github.com/DiffPoseTalk/DiffPoseTalk/tree/main)
@@ -300,11 +301,11 @@ Once all components are running:
 
 After rigorous evaluation, we finalized the following for **Avatar Lab**:
 
-### 🗣️ Speech Synthesis: [Zonos TTS](https://github.com/Zyphra/Zonos)
-**Reasoning:** Zonos TTS was selected for its lightweight architecture, natural-sounding voice synthesis, and flexibility in customization, which allows for diverse and expressive vocal outputs.
+### 🗣️ Speech Synthesis: [E2 F5 TTS GitHub](https://github.com/SWivid/F5-TTS.git)
+**Reasoning:** E2 F5 TTS was selected for its lightweight architecture, natural-sounding voice synthesis, and flexibility in customization, which allows for diverse and expressive vocal outputs.
 
 🎧 **Sample Audio Output:**
-[Listen to a Zonos TTS Sample (on GitHub Pages)](https://project-info182.github.io/Avatar-Lab/)
+[Listen to a E2 F5 TTS Sample (on GitHub Pages)](https://project-info182.github.io/Avatar-Lab/)
 *(Consider linking directly to an audio file: e.g. `your-repo/docs/audio/zonos_sample.wav`)*
 
 ### 🎥 Facial Animation: [LatentSync](https://github.com/bytedance/LatentSync)
@@ -333,7 +334,7 @@ Avatar Lab is ideal for enhancing applications in:
 
 ### ✅ Completed Milestones
 - **Core Model Selection:**
-    - 🌐 Finalized **Zonos TTS** for speech synthesis.
+    - 🌐 Finalized **E2 F5 TTS** for speech synthesis.
     - 🎥 Finalized **LatentSync** for facial animation.
 - **Prototyping & Foundation:**
     - 🖥️ Initial frontend structure designed with React.js and CSS.
