@@ -43,7 +43,7 @@ Here’s an updated and detailed **"Getting Started"** section for your README. 
 
 ## 🚀 Getting Started
 
-This project is divided into **Frontend**, **Backend**, and **AI Models** (Zonos TTS & LatentSync). To run Avatar Lab locally, follow these steps:
+This project is divided into **Frontend**, **Backend**, and **AI Models** (E2 F5 TTS & LatentSync). To run Avatar Lab locally, follow these steps:
 
 ---
 
@@ -131,11 +131,11 @@ npm run dev
 
 ---
 
-#### 📢 A. Zonos TTS (Speech Synthesis)
-**recommended** refer official repo link for installation process:[Zonos TTS GitHub](https://github.com/Zyphra/Zonos)
+#### 📢 A. E2 F5 TTS (Speech Synthesis)
+**recommended** refer official repo link for installation process:[E2 F5 TTS GitHub](https://github.com/SWivid/F5-TTS.git)
 
 ```bash
-cd ../models/zonos-tts  # adjust path based on your repo
+cd ../models/E2 F5-tts  # adjust path based on your repo
 python -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 pip install --upgrade pip
@@ -144,7 +144,7 @@ pip install -r tts-requirements.txt
 
 ##### Download Pretrained Weights
 
-> Check the official [Zonos TTS GitHub](https://github.com/Zyphra/Zonos) for model weight links and instructions on how to download model.
+> Check the official [E2 F5 TTS GitHub](https://github.com/SWivid/F5-TTS.git) for model weight links and instructions on how to download model.
 
 ```bash
 # Example:
