@@ -266,7 +266,7 @@ Once all components are running:
 
 ## 🛠️ Workflow: From Text to Expressive Avatar
 
-![Avatar Generation Workflow](https://github.com/project-info182/Avatar-Lab/blob/c3d02c133d499c9954853118c1e4d6110fbf05f5/Workflow.png)
+![Avatar Generation Workflow](https://github.com/project-info182/Avatar-Lab/blob/6ae54c141753c68b6ad441e4eb859562c92c0771/WorkFlow.png)
 *Caption: Step-by-step process from user input to final animated avatar.*
 
 1.  selects avatar/voice preferences and User inputs text/script.
