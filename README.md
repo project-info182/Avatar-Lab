@@ -177,9 +177,9 @@ docker container run --rm -it --gpus=all \
 
 | Model |	Concurrency	| Avg Latency |	RTF |	Mode |
 | ----- | ----------- | ----------- | --- |----- |
-| F5-TTS | |Base (Vocos)	|2	253 ms |	0.0394	| Client-Server |
-| F5-TTS |Base (Vocos)	| 1 |	 -	0.0402	| Offline TRT-LLM |
-| F5-TTS |Base (Vocos)	| 1	| -	0.1467	| Offline PyTorch |
+| F5-TTS | Base (Vocos)	|2	253 ms |	0.0394	| Client-Server |
+| F5-TTS | Base (Vocos)	| 1 |	 -	0.0402	| Offline TRT-LLM |
+| F5-TTS | Base (Vocos)	| 1	| -	0.1467	| Offline PyTorch |
 
 🗣 Inference Methods
 1️⃣ Gradio App
