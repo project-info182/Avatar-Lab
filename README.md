@@ -133,22 +133,89 @@ npm run dev
 
 #### 📢 A. E2 F5 TTS (Speech Synthesis)
 **recommended** refer official repo link for installation process:[E2 F5 TTS GitHub](https://github.com/SWivid/F5-TTS.git)
-
+### 🐍 Create a Python 3.10 Environment
 ```bash
-cd ../models/E2 F5-tts  # adjust path based on your repo
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-pip install --upgrade pip
-pip install -r tts-requirements.txt
+conda create -n f5-tts python=3.10
+conda activate f5-tts
+##### Start Zonos TTS API
 ```
-
-##### Download Pretrained Weights
-
-> Check the official [E2 F5 TTS GitHub](https://github.com/SWivid/F5-TTS.git) for model weight links and instructions on how to download model.
-
+⚙ Install PyTorch (Match Your Device)
+For Intel GPU
 ```bash
-# Example:
-wget https://some-url-to-zonos-model-weights/model.pth -O models/model.pth
+pip install torch torchaudio --index-url https://download.pytorch.org/whl/test/xpu
+```
+📦 F5-TTS Installation
+Option 1: Pip package (inference only)
+```bash
+pip install f5-tts
+```
+Option 2: Local editable install (for training or finetuning)
+```bash
+git clone https://github.com/SWivid/F5-TTS.git
+cd F5-TTS
+# git submodule update --init --recursive  # If needed for bigvgan
+pip install -e .
+```
+🐳 Docker Usage
+Build from Dockerfile
+```bash
+docker build -t f5tts:v1 .
+```
+Run from GitHub Container Registry
+```bash
+docker container run --rm -it --gpus=all \
+--mount 'type=volume,source=f5-tts,target=/root/.cache/huggingface/hub/' \
+-p 7860:7860 ghcr.io/swivid/f5-tts:main
+```
+Web Interface (Gradio)
+```bash
+docker container run --rm -it --gpus=all \
+--mount 'type=volume,source=f5-tts,target=/root/.cache/huggingface/hub/' \
+-p 7860:7860 ghcr.io/swivid/f5-tts:main f5-tts_infer-gradio --host 0.0.0.0
+```
+📊 Benchmark
+Model	Concurrency	Avg Latency	RTF	Mode
+F5-TTS Base (Vocos)	2	253 ms	0.0394	Client-Server
+F5-TTS Base (Vocos)	1	-	0.0402	Offline TRT-LLM
+F5-TTS Base (Vocos)	1	-	0.1467	Offline PyTorch
+
+🗣 Inference Methods
+1️⃣ Gradio App
+```bash
+# Launch UI
+f5-tts_infer-gradio
+```
+# Specify port & host
+f5-tts_infer-gradio --port 7860 --host 0.0.0.0
+
+# Public share
+f5-tts_infer-gradio --share
+
+2️⃣ CLI Inference
+With Flags
+bash
+Copy
+Edit
+```bash
+f5-tts_infer-cli --model F5TTS_v1_Base \
+--ref_audio "prompt.wav" \
+--ref_text "The transcription of reference audio." \
+--gen_text "Some text to synthesize."
+```
+Default setting
+```bash
+f5-tts_infer-cli
+```
+With custom config
+bash
+Copy
+Edit
+```bash
+f5-tts_infer-cli -c custom.toml
+```
+Multi-voice
+```bash
+f5-tts_infer-cli -c src/f5_tts/infer/examples/multi/story.toml
 ```
 
 ##### Start E2 F5 TTS API
