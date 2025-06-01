@@ -238,7 +238,7 @@ Once all components are running:
 
 ## 🧬 System Architecture
 
-![System Architecture Diagram for Avatar Lab](https://github.com/project-info182/Avatar-Lab/blob/46361b8df980249181c82c540b1f1bfc54f374e7/Architecture.png)
+![System Architecture Diagram for Avatar Lab](https://github.com/project-info182/Avatar-Lab/blob/1333679590c6ba8ef8f8a15e454e162553c5d34f/Architecture%20Final.png)
 *Caption: High-level overview of Avatar Lab's components and data flow.*
 
 ---
